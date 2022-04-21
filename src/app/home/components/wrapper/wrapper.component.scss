@@ -1,41 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 mat-sidenav-container {
     height: 100%;
-    mat-toolbar{
-        background-image:url("../../../../images/sidebar-bg.webp");
-        border-bottom-right-radius:50px ;
-        border-top-right-radius: 50px;
-        //background-color: #ffffff;
-        background-position:top;
-        background-repeat: no-repeat;
-        background-size:cover;
-        background-blend-mode:color-dodge;
-        color: rgb(23, 12, 111);
+    background-color: #ffffff;
+    /*.fixtopbar{
         position: fixed;
-        display: flex;
-        width: 89%;
-        justify-content: space-around;
-        .profilcontainer{
-            border-radius: 50%;
-            border-style: solid;
-        }
-        .profilbutton:hover{
-            cursor: pointer;
-        }
-        mat-toolbar-row{
-            display: flex;
-            justify-content: space-around;
-        }
+        width: 99%;
     }
+    .margin{
+        margin-left: 20px;
+        margin-right: 20px;
+    */
     .content{
         width: 90%;
-        margin: auto;
-        float: left;
-        padding: 5%;
+        //margin-top: 4%;
+        padding: 4%;
+        //padding-top: 3%;
         overflow:hidden;
         background-color: rgb(255, 255, 255);
     }
     /*.separator{
-        height: 10%;
+        height: 20px;
     }*/
   
     mat-sidenav {
@@ -47,7 +32,10 @@ mat-sidenav-container {
         //background-image: linear-gradient(to right, rgba(4, 3, 14, 1), rgb(0, 1, 7));
         //background-color: rgba(4, 3, 14, 1);
 
-
+        .mat-divider {
+            border-top-width: 2px;
+            border-color: white;
+          }
       mat-nav-list {
           overflow: hidden;
           .testlogo{
@@ -85,7 +73,7 @@ mat-sidenav-container {
         .sidenav-title{
             text-align: center;
             color: rgb(239, 241, 241);
-            font-family: 'Rubik', sans-serif; font-style:normal;
+            font-family:'Montserrat';
         }
         .sidenav-title:hover{
             color: #A1A3D4;
@@ -97,11 +85,6 @@ mat-sidenav-container {
             margin-top: 5px;
             margin-bottom: 5px;
         }
-        .navbaritems{
-            display: flex;
-            flex-direction: row;
-        }
-
     }
   }
 }

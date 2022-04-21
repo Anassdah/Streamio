@@ -13,6 +13,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { CardsComponent } from './components/cards/cards.component';
+import {MatCardModule} from '@angular/material/card';
+import { CarouselModule } from './components/carousel/carousel.module';
+
 
 
 
@@ -25,16 +34,24 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     LivestreamsComponent,
     StreamersComponent,
     AboutusComponent,
-    EventsComponent
+    EventsComponent,
+    TopbarComponent,
+    CardsComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
+    FormsModule,
+    CarouselModule,
     //Material modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatCardModule
 
   ]
 })

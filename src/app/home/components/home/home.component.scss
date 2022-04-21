@@ -1,0 +1,30 @@
+
+
+h1{
+    font-family:fantasy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+
+    /* or 36px */
+
+    text-align: center;
+
+    color: #0e0b30;
+
+    mix-blend-mode: multiply;
+
+}
+h2{
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.row :nth-child(n){
+    flex: 1 0 25%;
+    margin: 2px; 
+}
+

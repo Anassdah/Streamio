@@ -1,12 +1,13 @@
 
 <mat-sidenav-container autosize>
-    <mat-sidenav #sidenav mode="side" opened="true" [ngClass]="{'expand':isExpanded}">
+    <mat-sidenav #sidenav mode="side" opened="true" [ngClass]="{'expand':isExpanded}" >
         <mat-nav-list>
             <mat-list-item [routerLink]="'home'">
                 <span *ngIf="isExpanded" class="sidenav-title">Streamio</span>
                 <mat-icon mat-list-icon class="testlogo" [ngClass]="{'change':isExpanded}">stream</mat-icon>
                 <mat-icon mat-list-icon class="expand-button" (click)="isExpanded=!isExpanded" [ngClass]="{'rotated':isExpanded}">chevron_right</mat-icon>
             </mat-list-item >
+            <mat-divider></mat-divider>
             <mat-list-item [routerLink]="'home'"(click)="linkstatue='home'" >
                 <span *ngIf="isExpanded" class="sidenav-title">Home</span>
                 <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('home')} ">home</mat-icon>
@@ -37,25 +38,8 @@
             </mat-list-item >
         </mat-nav-list>
     </mat-sidenav>
-    <mat-toolbar>
-        <mat-toolbar-row>
-            <span>Top Bar</span>
-            <span class="example-spacer"></span>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>            
-            <div>
-                <button class="profilbutton">
-                    <img src="../../../../assets/avatar2.png" alt="">
-                </button>
-            </div>
-            <div>
-            <mat-nav-list>
-                <mat-list-item>Se connecter</mat-list-item>
-            </mat-nav-list>
-            </div>
-          </mat-toolbar-row>
+    <app-topbar [ngClass]="{'margin':!isExpanded}"></app-topbar>
 
-    </mat-toolbar>
-    <div class="separator"></div>
     <div class="content">
         
         <router-outlet></router-outlet>

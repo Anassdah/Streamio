@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { cards } from '../cards/cards.component';
-
+export interface cards {
+  image: string;
+  btn: string;
+  author:string;
+}
 
 @Component({
-  selector: 'app-articles',
-  templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.scss']
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss']
 })
-export class ArticlesComponent implements OnInit {
+export class CardsComponent implements OnInit {
 
   constructor() { }
 
@@ -25,6 +28,11 @@ export class ArticlesComponent implements OnInit {
       author:"John Doe"
     },
     {
+      image: "assets/images/FIFA22.jpg",
+      btn: "btn-info",
+      author:"Blake Levy"
+    },
+    {
       image: "assets/images/uncharted.jpg",
       btn: "btn-danger",
       author:"Mark Antony"
@@ -40,4 +48,3 @@ export class ArticlesComponent implements OnInit {
       author:"Blake Levy"
     },]
 }
-

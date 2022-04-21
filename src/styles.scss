@@ -9,11 +9,12 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$testproject-primary: mat.define-palette(mat.$indigo-palette);
-$testproject-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$testproject-primary: mat.define-palette(mat.$blue-palette);
+$testproject-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $testproject-warn: mat.define-palette(mat.$red-palette);
@@ -33,14 +34,22 @@ $testproject-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($testproject-theme);
 
+
+
 /* You can add global styles to this file, and also import other style files */
 
+//
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; }
 button{
   text-decoration: none;
   background: none;
   border: none;
+}
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 button:hover{
   cursor: pointer;
@@ -50,7 +59,7 @@ button:hover{
   overflow-y: scroll;
   background: grey;
   box-shadow: inset 0 0 4px #707070;
-  right: 0;
+
 }
 
 
