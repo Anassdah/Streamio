@@ -1,1 +1,7 @@
-<p>games works!</p>
+<div *ngIf="games">
+    <div *ngFor="let g of games">
+        <a (click)="goToGame(g._id)">
+            {{g.name}}
+        </a>
+    </div>
+</div> 

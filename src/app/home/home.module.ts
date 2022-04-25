@@ -17,10 +17,11 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
 import { CarouselModule } from './components/carousel/carousel.module';
+import { GamePageComponent } from './components/game-page/game-page.component';
 
 
 
@@ -36,7 +37,8 @@ import { CarouselModule } from './components/carousel/carousel.module';
     AboutusComponent,
     EventsComponent,
     TopbarComponent,
-    CardsComponent
+    CardsComponent,
+    GamePageComponent
   ],
   imports: [
     CommonModule,
@@ -51,8 +53,8 @@ import { CarouselModule } from './components/carousel/carousel.module';
     MatMenuModule,
     MatSlideToggleModule,
     MatFormFieldModule,
-    MatCardModule
-
+    MatCardModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

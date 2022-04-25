@@ -1,0 +1,15 @@
+
+<div *ngIf="game">
+    {{game.name}} {{game.rating}}
+    <form>
+        <label for="rating">Rating: </label>
+        <input id="rating" type="text" [formControl]="rating" required>
+        <label for="desc">Description: </label>
+        <input id="desc" type="text" [formControl]="desc" required>
+        <button type="button" (click)="submitReview()">Submit</button>
+    </form>
+    <div *ngFor="let r of game.reviews">
+        Rating : {{r.rating}} <br/>
+        Review : {{r.desc}}
+    </div>
+</div> 
