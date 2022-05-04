@@ -1,7 +1,17 @@
-<div *ngIf="games">
-    <div *ngFor="let g of games">
-        <a (click)="goToGame(g._id)">
-            {{g.name}}
-        </a>
+<div fxLayout="row" fxLayoutAlign="start stretch">
+    <div *ngFor="let game of games" >
+      <mat-card class="overflow-hidden" (click)="goToGame(game._id)">
+        <div>
+          <img src="{{ game.image }}" class="w-100" alt="">
+        </div>
+        <mat-card-content>
+          <div>
+            <p class="fs-18 lh-lg fw-medium">
+                {{game.name}}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      
     </div>
-</div> 
+  </div>
