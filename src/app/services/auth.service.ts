@@ -24,7 +24,6 @@ export class AuthService {
     localStorage.setItem('id_token', authResult.user.token);
     localStorage.setItem('username', authResult.user.username);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-    localStorage.setItem('role', authResult.user.role);
   }
 
   getUsername() {
@@ -42,7 +41,6 @@ export class AuthService {
     localStorage.removeItem("id_token");
     localStorage.removeItem("username");
     localStorage.removeItem("expires_at");
-    localStorage.removeItem("role");
   }
 
   isLoggedIn() {
