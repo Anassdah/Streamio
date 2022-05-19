@@ -51,6 +51,7 @@ import { RegisterComponent } from './components/register/register.component';
     HomeRoutingModule,
     FormsModule,
     CarouselModule,
+    ReactiveFormsModule,
     //Material modules
     MatSidenavModule,
     MatIconModule,
@@ -61,7 +62,6 @@ import { RegisterComponent } from './components/register/register.component';
     MatFormFieldModule,
     MatCardModule,
     MatFormFieldModule,
-    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
