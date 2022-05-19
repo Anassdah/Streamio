@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 mat-toolbar{
     //background-image:url("../../../../images/sidebar-bg.webp");
@@ -6,6 +7,7 @@ mat-toolbar{
     //border-bottom-left-radius:25px ;
     //border-top-right-radius: 25px;
     //border-radius: 25px;
+    font-family:'Montserrat';
     background-position:top;
     background-repeat: no-repeat;
     background-size:cover;
@@ -47,7 +49,7 @@ mat-toolbar{
           }
           .profilbutton span{
               padding: 5px;
-              font-family:Roboto,Helvetica Neue, sans-serif;
+              font-family:'Montserrat';
               font-size: 16px;
               margin-left: 5px;
           }

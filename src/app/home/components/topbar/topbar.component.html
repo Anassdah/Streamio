@@ -1,51 +1,46 @@
-
 <mat-toolbar>
-    <mat-toolbar-row>
-      <div class="center">
-        <span mat-toolbar-item>Top Bar</span>
-        <span class="example-spacer"></span>
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>            
+  <mat-toolbar-row>
+
+    <div>
+      <button class="center profilbutton" *ngIf="auth.isLoggedIn()">
+        <!--<img src="../../../../assets/images/avatar2.png" class="user-image">-->
+        <span>{{auth.getUsername()}}</span>
+      </button>
+    </div>
+    <div>
+
+      <mat-nav-list>
+        <mat-list-item>
+          <div class="center">
+            <label for="search" class="center">
+              <mat-icon>search</mat-icon>
+            </label>
+            <input id="search" [(ngModel)]="search" placeholder="Search">
+          </div>
+        </mat-list-item>
+        <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
+
+      </mat-nav-list>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>tune</mat-icon>
+        <span>Some settings</span>
+      </button>
+      <div mat-menu-item>
+        <mat-icon>dark_mode</mat-icon>
+        <mat-slide-toggle>
+          <span>Dark mode</span>
+        </mat-slide-toggle>
       </div>
-        
-      <div>
-        <button class="center profilbutton" *ngIf="auth.isLoggedIn()">
-          <!--<img src="../../../../assets/images/avatar2.png" class="user-image">-->
-          <span>{{auth.getUsername()}}</span>
-        </button>
-      </div>
-        <div>
-          
-        <mat-nav-list>
-            <mat-list-item>
-              <div class="center">
-                <label for="search" class="center"><mat-icon>search</mat-icon> </label>
-                <input id="search" [(ngModel)]="search" placeholder="Search">
-            </div>
-            </mat-list-item>
-            <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
-            
-        </mat-nav-list>
-        </div>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>tune</mat-icon>
-              <span>Some settings</span>
-            </button>
-            <div mat-menu-item>
-              <mat-icon>dark_mode</mat-icon>
-              <mat-slide-toggle>
-                <span>Dark mode</span>
-              </mat-slide-toggle>
-            </div>
-            <button mat-menu-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()">
-              <mat-icon>logout</mat-icon>
-              <span>Log out</span>
-            </button>
-          </mat-menu>
-      </mat-toolbar-row>
+      <button mat-menu-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Log out</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
 
 </mat-toolbar>
-
