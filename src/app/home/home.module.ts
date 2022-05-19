@@ -24,6 +24,8 @@ import { CarouselModule } from './components/carousel/carousel.module';
 import { GamePageComponent } from './components/game-page/game-page.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth.interceptor';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -40,7 +42,9 @@ import { AuthInterceptor } from '../auth.interceptor';
     EventsComponent,
     TopbarComponent,
     CardsComponent,
-    GamePageComponent
+    GamePageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -56,6 +60,7 @@ import { AuthInterceptor } from '../auth.interceptor';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatCardModule,
+    MatFormFieldModule,
     ReactiveFormsModule
   ],
   providers: [
