@@ -8,9 +8,9 @@
       </div>
         
       <div>
-        <button class="center profilbutton" >
-          <img src="../../../../assets/images/avatar2.png" class="user-image">
-          <span>Guest</span>
+        <button class="center profilbutton" *ngIf="auth.isLoggedIn()">
+          <!--<img src="../../../../assets/images/avatar2.png" class="user-image">-->
+          <span>{{auth.getUsername()}}</span>
         </button>
       </div>
         <div>
@@ -22,7 +22,7 @@
                 <input id="search" [(ngModel)]="search" placeholder="Search">
             </div>
             </mat-list-item>
-            <mat-list-item>Se connecter</mat-list-item>
+            <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
             
         </mat-nav-list>
         </div>
@@ -40,7 +40,7 @@
                 <span>Dark mode</span>
               </mat-slide-toggle>
             </div>
-            <button mat-menu-item disabled>
+            <button mat-menu-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()">
               <mat-icon>logout</mat-icon>
               <span>Log out</span>
             </button>
