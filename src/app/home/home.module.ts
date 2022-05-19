@@ -22,6 +22,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
 import { CarouselModule } from './components/carousel/carousel.module';
 import { GamePageComponent } from './components/game-page/game-page.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../auth.interceptor';
 
 
 
@@ -55,6 +57,9 @@ import { GamePageComponent } from './components/game-page/game-page.component';
     MatFormFieldModule,
     MatCardModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class HomeModule { }
