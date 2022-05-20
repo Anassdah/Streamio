@@ -13,8 +13,16 @@ export class AuthService {
 
   //TODO: implement register methode
 
+  register(username: string, email: string, password: string, password_confirm: string) {
+    if(password == password_confirm){
+      return this.http.post(this.authHost+"/register", {username: username, email: email});
+    } else {
+      return null;
+    }
+  }
+
   login(email: string, password: string) {
-    //Login requires email and passwor
+    //Login requires email and password
     return this.http.post(this.authHost+"/login", {email: email, password: password});
   }
 
