@@ -7,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
   isExpanded:boolean=false;
-  linkstatue:string="home";
+  linkstatue:string=window.location.pathname.split("/")[1];
   samelink(link:string):boolean{
     if (link==this.linkstatue){return true}
     return false 
-
   }
   constructor() { }
 

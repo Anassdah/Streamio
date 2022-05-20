@@ -1,0 +1,25 @@
+
+<div *ngIf="game">
+    <div >
+        <img src="{{ game.image }}" class="w-100" alt="">
+        <div>{{game.name}}<br/>Rating: {{game.rating}}</div>
+    </div>
+    
+    <mat-card>
+        <form>
+            <label for="rating">Rating: </label><br/>
+            <input id="rating" type="text" [formControl]="rating" required><br/>
+            <label for="desc">Description: </label><br/>
+            <input id="desc" type="text" [formControl]="desc" required><br/>
+            <button type="button" (click)="submitReview()">Submit</button>
+        </form>
+    </mat-card>
+        
+    <div *ngFor="let r of game.reviews">
+        <mat-card>
+            Rating : {{r.rating}} <br/>
+            Review : {{r.desc}}
+        </mat-card>
+    </div>
+
+</div> 

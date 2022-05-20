@@ -1,0 +1,25 @@
+<div>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>username</mat-label>
+            <input matInput placeholder="username" [formControl]="username">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>email</mat-label>
+        <input matInput placeholder="Email" [formControl]="email">
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>password</mat-label>
+        <input matInput placeholder="Password" [formControl]="password" type="password">
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>confirm password</mat-label>
+        <input matInput placeholder="Confirm password" [formControl]="password_confirm" type="password">
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <button (click)="this.attemptRegistration()">Login</button>
+</form>
+</div>

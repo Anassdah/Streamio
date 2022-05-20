@@ -17,10 +17,6 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
-import { CardsComponent } from './components/cards/cards.component';
-import {MatCardModule} from '@angular/material/card';
-import { CarouselModule } from './components/carousel/carousel.module';
 import { ArticleComponent } from './components/article/article.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 
@@ -37,8 +33,15 @@ import { FileSelectDirective } from 'ng2-file-upload';
 
 import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule } from 'ng2-file-upload';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardsComponent } from './components/cards/cards.component';
+import {MatCardModule} from '@angular/material/card';
+import { CarouselModule } from './components/carousel/carousel.module';
+import { GamePageComponent } from './components/game-page/game-page.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../auth.interceptor';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -57,6 +60,9 @@ import { FileUploadModule } from 'ng2-file-upload';
     AddArticleComponent,
     ImagesComponent,
     
+    GamePageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -76,6 +82,11 @@ import { FileUploadModule } from 'ng2-file-upload';
     HttpClientModule,
     ToastrModule ,
     FileUploadModule,
+    MatFormFieldModule,
+    ReactiveFormsModule 
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class HomeModule { }

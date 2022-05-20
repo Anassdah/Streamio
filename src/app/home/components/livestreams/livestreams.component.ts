@@ -12,6 +12,4 @@ export class LivestreamsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-
 }
