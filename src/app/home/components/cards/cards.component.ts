@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-import { Component, Input, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-export interface Article{
-    _id:string;
-    title :string;
-    image_url : string;
-    description :string ;
-    content:string;
-    author_id : string ;
-    likes : string ;
-    comments :[];
-=======
 import { Component, OnInit } from '@angular/core';
 export interface cards {
   image: string;
   btn: string;
   author:string;
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 }
 
 @Component({
@@ -25,21 +11,6 @@ export interface cards {
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-<<<<<<< HEAD
-  
-  @Input() cards: Article []| undefined;
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
-  gotoArticle(article: Article) {
-    
-    this.router.navigate(
-      ['/article/',article._id]
-    );
-  }
- 
-=======
 
   constructor() { }
 
@@ -76,5 +47,4 @@ export class CardsComponent implements OnInit {
       btn: "btn-info",
       author:"Blake Levy"
     },]
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 }

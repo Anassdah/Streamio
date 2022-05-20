@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-// Custom Theming for Angular Material
-
-
-=======
 
 // Custom Theming for Angular Material
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
@@ -45,13 +39,6 @@ $testproject-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 //
-<<<<<<< HEAD
-@import 'prismjs/themes/prism-okaidia.css';
-@import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-@import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
-
-=======
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 html, body { height: 100%; }
 body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; }
 button{
@@ -80,8 +67,3 @@ button:hover{
   background: blue;
   border-radius: 10px;
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
