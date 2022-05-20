@@ -17,6 +17,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
@@ -37,6 +38,13 @@ import { FileSelectDirective } from 'ng2-file-upload';
 
 import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule } from 'ng2-file-upload';
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardsComponent } from './components/cards/cards.component';
+import {MatCardModule} from '@angular/material/card';
+import { CarouselModule } from './components/carousel/carousel.module';
+import { GamePageComponent } from './components/game-page/game-page.component';
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 
 
 
@@ -53,10 +61,14 @@ import { FileUploadModule } from 'ng2-file-upload';
     EventsComponent,
     TopbarComponent,
     CardsComponent,
+<<<<<<< HEAD
     ArticleComponent,
     AddArticleComponent,
     ImagesComponent,
     
+=======
+    GamePageComponent
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
   ],
   imports: [
     CommonModule,
@@ -72,10 +84,14 @@ import { FileUploadModule } from 'ng2-file-upload';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatCardModule,
+<<<<<<< HEAD
     MarkdownModule.forRoot(),
     HttpClientModule,
     ToastrModule ,
     FileUploadModule,
+=======
+    ReactiveFormsModule
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
   ]
 })
 export class HomeModule { }

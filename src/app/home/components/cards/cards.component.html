@@ -3,11 +3,16 @@
     <div fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%" *ngFor="let card of cards" >
       <mat-card class="overflow-hidden">
         <div>
+<<<<<<< HEAD
           <img src="{{ card.image_url }}" class="w-100" alt="">
+=======
+          <img src="{{ card.image }}" class="w-100" alt="">
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
         </div>
         <mat-card-content>
           <div>
             <p class="fs-18 lh-lg fw-medium">
+<<<<<<< HEAD
               {{card.title}}
             </p>
             <p class="op-7">
@@ -16,6 +21,16 @@
             <div class="align">
               <button  mat-button class="btn  fw-normal mt-4" (click)="gotoArticle(card)">Learn More</button>
             <p class="fs-17 lh-lg fw-medium">{{card.author_id}}</p>
+=======
+              Super awesome, Angular 12 is coming soon!
+            </p>
+            <p class="op-7">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+            <div class="align">
+              <button mat-button class="btn {{ card.btn }} fw-normal mt-4">Learn More</button>
+            <p class="fs-17 lh-lg fw-medium">{{card.author}}</p>
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
             </div>
           </div>
         </mat-card-content>

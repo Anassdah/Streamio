@@ -99,6 +99,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/prismjs/themes/prism-okaidia.css",
@@ -117,6 +118,11 @@
               "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
               "node_modules/katex/dist/katex.min.js"
             ]
+=======
+              "src/styles.scss"
+            ],
+            "scripts": []
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
           }
         }
       }
