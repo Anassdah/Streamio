@@ -17,34 +17,11 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
-import { CardsComponent } from './components/cards/cards.component';
-import {MatCardModule} from '@angular/material/card';
-import { CarouselModule } from './components/carousel/carousel.module';
-import { ArticleComponent } from './components/article/article.component';
-import { AddArticleComponent } from './components/add-article/add-article.component';
-
-import { MarkdownModule } from 'ngx-markdown';
-
-import 'prismjs';
-import 'prismjs/components/prism-typescript.min.js';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
-
-import { HttpClientModule } from '@angular/common/http';
-import { ImagesComponent } from './components/images/images.component';
-import { FileSelectDirective } from 'ng2-file-upload';
-
-import { ToastrModule } from 'ngx-toastr';
-import { FileUploadModule } from 'ng2-file-upload';
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
 import { CarouselModule } from './components/carousel/carousel.module';
 import { GamePageComponent } from './components/game-page/game-page.component';
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 
 
 
@@ -61,14 +38,7 @@ import { GamePageComponent } from './components/game-page/game-page.component';
     EventsComponent,
     TopbarComponent,
     CardsComponent,
-<<<<<<< HEAD
-    ArticleComponent,
-    AddArticleComponent,
-    ImagesComponent,
-    
-=======
     GamePageComponent
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
   ],
   imports: [
     CommonModule,
@@ -84,14 +54,7 @@ import { GamePageComponent } from './components/game-page/game-page.component';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatCardModule,
-<<<<<<< HEAD
-    MarkdownModule.forRoot(),
-    HttpClientModule,
-    ToastrModule ,
-    FileUploadModule,
-=======
     ReactiveFormsModule
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
   ]
 })
 export class HomeModule { }

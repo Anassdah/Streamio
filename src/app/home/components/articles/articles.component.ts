@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { ArticleServiceService } from 'src/app/services/article-service.service';
-import { Article } from '../cards/cards.component';
-=======
 import { cards } from '../cards/cards.component';
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 
 
 @Component({
@@ -14,19 +9,6 @@ import { cards } from '../cards/cards.component';
 })
 export class ArticlesComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private ArticleService:ArticleServiceService) { }
-
-  ngOnInit(): void {
-    this.getArticles();
-  }
-  articles: Article []=[];
-  getArticles(): void {
-    this.ArticleService.getAllArticles().subscribe((articles) => {
-      this.articles = articles.reverse();
-    });
-  }
-=======
   constructor() { }
 
   ngOnInit(): void {
@@ -57,6 +39,5 @@ export class ArticlesComponent implements OnInit {
       btn: "btn-info",
       author:"Blake Levy"
     },]
->>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
 }
 
