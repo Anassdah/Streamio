@@ -1,14 +1,16 @@
 <div>
+    <form>
     <mat-form-field appearance="outline">
         <mat-label>email</mat-label>
-        <input matInput placeholder="Email">
+        <input matInput placeholder="Email" [formControl]="email">
         <mat-hint>Hint</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>password</mat-label>
-        <input matInput placeholder="Email">
+        <input matInput placeholder="Password" [formControl]="password" type="password">
         <mat-hint>Hint</mat-hint>
     </mat-form-field>
-    <button></button>
+    <button >Login</button>
+</form>
 </div>
 
