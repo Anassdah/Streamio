@@ -1,0 +1,48 @@
+
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="true" [ngClass]="{'expand':isExpanded}" >
+        <mat-nav-list>
+            <mat-list-item [routerLink]="'home'">
+                <span *ngIf="isExpanded" class="sidenav-title">Streamio</span>
+                <mat-icon mat-list-icon class="testlogo" [ngClass]="{'change':isExpanded}">stream</mat-icon>
+                <mat-icon mat-list-icon class="expand-button" (click)="isExpanded=!isExpanded" [ngClass]="{'rotated':isExpanded}">chevron_right</mat-icon>
+            </mat-list-item >
+            <mat-divider></mat-divider>
+            <mat-list-item [routerLink]="'home'"(click)="linkstatue='home'" >
+                <span *ngIf="isExpanded" class="sidenav-title">Home</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('home')} ">home</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'games'" (click)="linkstatue='games'">
+                <span *ngIf="isExpanded" class="sidenav-title">Games</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('games')}">sports_esports</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'articles'" (click)="linkstatue='articles'">
+                <span *ngIf="isExpanded" class="sidenav-title">Articles</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('articles')}">newspaper</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'events'" (click)="linkstatue='events'">
+                <span *ngIf="isExpanded" class="sidenav-title">Events</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('events')}">emoji_events</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'livestreams'" (click)="linkstatue='livestreams'">
+                <span *ngIf="isExpanded" class="sidenav-title">Livestreams</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('livestreams')}">live_tv</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'streamers'" (click)="linkstatue='streamers'">
+                <span *ngIf="isExpanded" class="sidenav-title">Streamers</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('streamers')}">groups</mat-icon>
+            </mat-list-item >
+            <mat-list-item [routerLink]="'aboutus'" (click)="linkstatue='aboutus'">
+                <span *ngIf="isExpanded" class="sidenav-title">About us</span>
+                <mat-icon mat-list-icon class="sidenavbutton" [ngClass]="{'change':samelink('aboutus')}">info</mat-icon>
+            </mat-list-item >
+        </mat-nav-list>
+    </mat-sidenav>
+    <app-topbar [ngClass]="{'margin':!isExpanded}"></app-topbar>
+
+    <div class="content">
+        
+        <router-outlet></router-outlet>
+
+    </div>
+</mat-sidenav-container>

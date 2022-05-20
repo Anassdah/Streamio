@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+mat-sidenav-container {
+    height: 100%;
+    background-color: #ffffff;
+    /*.fixtopbar{
+        position: fixed;
+        width: 99%;
+    }
+    .margin{
+        margin-left: 20px;
+        margin-right: 20px;
+    */
+    .content{
+        width: 90%;
+        //margin-top: 4%;
+        padding: 4%;
+        //padding-top: 3%;
+        overflow:hidden;
+        background-color: rgb(255, 255, 255);
+    }
+    /*.separator{
+        height: 20px;
+    }*/
+  
+    mat-sidenav {
+        background-image:url("../../../../images/sidebar-bg.webp");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 20%;
+        //background-image: linear-gradient(to right, rgba(4, 3, 14, 1), rgb(0, 1, 7));
+        //background-color: rgba(4, 3, 14, 1);
+
+        .mat-divider {
+            border-top-width: 2px;
+            border-color: white;
+          }
+      mat-nav-list {
+          overflow: hidden;
+          .testlogo{
+              color: #A1A3D4;
+              font-weight: 700;
+              text-align: center;
+          }
+          .testlogo.change{
+            color:#A1A3D4            
+        }
+        .expand-button {
+          transition: 300ms ease-in-out;
+          transform: rotate(0deg);
+          right: 0;
+          float: right;
+          position: absolute;
+          color: #ffffff;
+
+        }
+  
+        .expand-button.rotated {
+          transform: rotate(180deg);
+        }
+        .sidenavbutton{
+            transition: 300ms ease-in-out;
+            color:white;
+        }
+        .sidenavbutton:hover{
+            color: #9ea0d9;
+        }
+
+        .sidenavbutton.change{
+            color: rgb(0, 119, 255);
+        }
+        .sidenav-title{
+            text-align: center;
+            color: rgb(239, 241, 241);
+            font-family:'Montserrat';
+        }
+        .sidenav-title:hover{
+            color: #A1A3D4;
+        }
+        mat-list-item:hover{
+            background-color: rgba(118, 116, 161, 0.062);
+        }
+        mat-list-item{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+  }
+}
