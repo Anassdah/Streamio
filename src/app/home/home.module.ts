@@ -22,6 +22,10 @@ import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
 import { CarouselModule } from './components/carousel/carousel.module';
 import { GamePageComponent } from './components/game-page/game-page.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../auth.interceptor';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -38,13 +42,16 @@ import { GamePageComponent } from './components/game-page/game-page.component';
     EventsComponent,
     TopbarComponent,
     CardsComponent,
-    GamePageComponent
+    GamePageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
     CarouselModule,
+    ReactiveFormsModule,
     //Material modules
     MatSidenavModule,
     MatIconModule,
@@ -54,7 +61,10 @@ import { GamePageComponent } from './components/game-page/game-page.component';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatCardModule,
-    ReactiveFormsModule
+    MatFormFieldModule,
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class HomeModule { }
