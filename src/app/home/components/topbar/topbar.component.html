@@ -1,3 +1,70 @@
+<<<<<<< HEAD
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu">Add</button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item [routerLink]="'add_article'">Add article </a>
+        <a mat-menu-item>Go live </a>
+        <a mat-menu-item [routerLink]="'images'">Upload images</a>
+      </mat-menu>
+    </div>
+    <div class="center">
+      <span mat-toolbar-item>Top Bar</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example user verified icon"
+        >verified_user</mat-icon
+      >
+    </div>
+
+    <div>
+      <button class="center profilbutton">
+        <img src="../../../../assets/images/avatar2.png" class="user-image" />
+        <span>Guest</span>
+      </button>
+    </div>
+    <div>
+      <mat-nav-list>
+        <mat-list-item>
+          <div class="center">
+            <label for="search" class="center"
+              ><mat-icon>search</mat-icon>
+            </label>
+            <input id="search" [(ngModel)]="search" placeholder="Search" />
+          </div>
+        </mat-list-item>
+        <mat-list-item>Se connecter</mat-list-item>
+      </mat-nav-list>
+    </div>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>tune</mat-icon>
+        <span>Some settings</span>
+      </button>
+      <div mat-menu-item>
+        <mat-icon>dark_mode</mat-icon>
+        <mat-slide-toggle>
+          <span>Dark mode</span>
+        </mat-slide-toggle>
+      </div>
+      <button mat-menu-item disabled>
+        <mat-icon>logout</mat-icon>
+        <span>Log out</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+=======
 
 <mat-toolbar>
     <mat-toolbar-row>
@@ -49,3 +116,4 @@
 
 </mat-toolbar>
 
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b

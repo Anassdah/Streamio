@@ -99,9 +99,30 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.css",
+              "node_modules/katex/dist/katex.min.css"
+            ],
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.js",
+              "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
+              "node_modules/katex/dist/katex.min.js"
+            ]
+=======
               "src/styles.scss"
             ],
             "scripts": []
+>>>>>>> b873f00870b926cda9763b9d2b22e8a6e55de66b
           }
         }
       }
