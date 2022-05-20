@@ -1,0 +1,58 @@
+
+mat-toolbar{
+    background-image:url("../../../../images/sidebar-bg.webp");
+    //background-color: #ffffff;
+    border-bottom-right-radius:25px ;
+    border-bottom-left-radius:25px ;
+    //border-top-right-radius: 25px;
+    //border-radius: 25px;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size:cover;
+    //margin-left: 20px;
+    background-blend-mode:difference;
+    color: rgb(23, 12, 111);
+    display: flex;
+    justify-content: space-between;
+    //width: 90%;
+    mat-toolbar-row{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        mat-nav-list{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            mat-list-item{
+                margin-bottom: 5px;
+            }
+        }
+          .user-image {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+          }
+          .center{
+              display: flex;
+              text-align: center;
+              align-items: center;
+              justify-content: space-between;
+          }
+          #search{
+              width: 100%;
+              min-width: 42px;
+              border-radius: 5px;
+          }
+          .profilbutton span{
+              padding: 5px;
+              font-family:Roboto,Helvetica Neue, sans-serif;
+              font-size: 16px;
+              margin-left: 5px;
+          }
+
+    }
+    
+
+}
