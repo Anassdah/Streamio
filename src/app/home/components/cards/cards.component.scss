@@ -1,7 +1,6 @@
+
 @use '@angular/material'as mat;
 @include mat.core();
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 
 $flexy-primary: (
@@ -58,7 +57,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Montserrat' !important;
+  font-family: 'DM Sans', sans-serif !important;
 }
 
 @include mat.all-component-themes($flexy-angular-theme);

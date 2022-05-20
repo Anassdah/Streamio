@@ -13,6 +13,11 @@
   ],
   "include": [
     "src/**/*.spec.ts",
+<<<<<<< HEAD
+    "src/**/*.d.ts",
+    "projectfrontend/src/app/models/Article.ts"
+=======
     "src/**/*.d.ts"
+>>>>>>> 5d11ec9dae20a712f738894e468142de77b96049
   ]
 }

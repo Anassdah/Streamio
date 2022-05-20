@@ -1,0 +1,39 @@
+<!-- Upload  -->
+<div style="text-align: center">
+  <form>
+    <div>
+      <input
+        #multipleInput
+        type="file"
+        name="images"
+        multiple
+        (change)="selectMultipleImage($event)"
+      />
+    </div>
+    <br />
+    <div>
+      <button  class="button-29" role="button"  type="submit" (click)="onMultipleSubmit()">
+        Multiple Upload
+      </button>
+    </div>
+  </form>
+ 
+ 
+  <ng-template #elseMultipleImagesTemplate>
+    <br /><br />
+    <div>Please Upload Some Images</div>
+  </ng-template>
+</div>
+  
+  
+ 
+<div *ngFor="let image of images">
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{image.img_url}}">
+            <img src="{{image.img_url}}" alt="Cinque Terre" width="600" height="400">
+          </a>
+        </div>
+      </div>
+
+</div>

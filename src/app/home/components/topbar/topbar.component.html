@@ -2,6 +2,14 @@
   <mat-toolbar-row>
 
     <div>
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">Add</button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item [routerLink]="'add_article'">Add article </a>
+          <a mat-menu-item>Go live </a>
+          <a mat-menu-item [routerLink]="'images'">Upload images</a>
+        </mat-menu>
+      </div>
       <button class="center profilbutton" *ngIf="auth.isLoggedIn()">
         <!--<img src="../../../../assets/images/avatar2.png" class="user-image">-->
         <span>{{auth.getUsername()}}</span>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { cards } from '../cards/cards.component';
+import { ArticleServiceService } from 'src/app/services/article-service.service';
+import { Article } from '../cards/cards.component';
 
 
 @Component({
@@ -9,35 +10,16 @@ import { cards } from '../cards/cards.component';
 })
 export class ArticlesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ArticleService:ArticleServiceService) { }
 
   ngOnInit(): void {
+    this.getArticles();
   }
-  cards: cards [] = [
-    {
-      image: "assets/images/u2.webp",
-      btn: "btn-danger",
-      author:"Mark Antony"
-    },
-    {
-      image: "assets/images/u3.webp",
-      btn: "btn-warning",
-      author:"John Doe"
-    },
-    {
-      image: "assets/images/uncharted.jpg",
-      btn: "btn-danger",
-      author:"Mark Antony"
-    },
-    {
-      image: "assets/images/cod2.jpg",
-      btn: "btn-warning",
-      author:"John Doe"
-    },
-    {
-      image: "assets/images/u4.webp",
-      btn: "btn-info",
-      author:"Blake Levy"
-    },]
+  articles: Article []=[];
+  getArticles(): void {
+    this.ArticleService.getAllArticles().subscribe((articles) => {
+      this.articles = articles.reverse();
+    });
+  }
 }
 

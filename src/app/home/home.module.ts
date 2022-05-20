@@ -17,6 +17,22 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ArticleComponent } from './components/article/article.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
+
+import { MarkdownModule } from 'ngx-markdown';
+
+import 'prismjs';
+import 'prismjs/components/prism-typescript.min.js';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ImagesComponent } from './components/images/images.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+
+import { ToastrModule } from 'ngx-toastr';
+import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
@@ -26,8 +42,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
-
 
 
 @NgModule({
@@ -42,6 +56,10 @@ import { RegisterComponent } from './components/register/register.component';
     EventsComponent,
     TopbarComponent,
     CardsComponent,
+    ArticleComponent,
+    AddArticleComponent,
+    ImagesComponent,
+    
     GamePageComponent,
     LoginComponent,
     RegisterComponent
@@ -51,7 +69,6 @@ import { RegisterComponent } from './components/register/register.component';
     HomeRoutingModule,
     FormsModule,
     CarouselModule,
-    ReactiveFormsModule,
     //Material modules
     MatSidenavModule,
     MatIconModule,
@@ -61,7 +78,12 @@ import { RegisterComponent } from './components/register/register.component';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatCardModule,
+    MarkdownModule.forRoot(),
+    HttpClientModule,
+    ToastrModule ,
+    FileUploadModule,
     MatFormFieldModule,
+    ReactiveFormsModule 
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

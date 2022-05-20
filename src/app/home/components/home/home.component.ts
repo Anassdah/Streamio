@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '../cards/cards.component';
 
 @Component({
   selector: 'app-home',
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
       imageAlt: 'person2',
     },
   ]
+  cards: Article [] = []
 
   ngOnInit(): void {
   }
-
 }
