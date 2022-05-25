@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+
 export interface Article{
     _id:string;
     title :string;
@@ -7,10 +8,10 @@ export interface Article{
     description :string ;
     content:string;
     author_id : string ;
+    author_name:string;
     likes : string ;
     comments :[];
 }
-
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -24,10 +25,8 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
   }
   gotoArticle(article: Article) {
-    
     this.router.navigate(
       ['/article/',article._id]
     );
-  }
- 
+  } 
 }

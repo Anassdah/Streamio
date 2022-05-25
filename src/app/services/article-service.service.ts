@@ -6,7 +6,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class ArticleServiceService {
 
-  private ArticleUrl = 'http://localhost:3000/article/'; // URL to web api
+  private ArticleUrl = 'http://localhost:4000/article/article/'; // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };
@@ -18,6 +18,9 @@ export class ArticleServiceService {
   }
   getArticle(article_id :string){
     return this.http.get<any>(this.ArticleUrl+article_id)
+  }
+  getUserArticles(user_id :string){
+    return this.http.get<any>(this.ArticleUrl+user_id+"/article");
   }
   getAllArticles(){
     return this.http.get<any>(this.ArticleUrl);

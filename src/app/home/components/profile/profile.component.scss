@@ -1,0 +1,17 @@
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#user_infos_container{
+    height: max-content;
+    margin: 20px;
+    padding : 20px;
+    border-radius: 20px;
+    border :0.1px solid black;
+}
+#video_Article_contatiner{
+    min-height: 900px;
+    grid-area: article_video_area;
+    padding : 20px;
+    border-radius: 20px;
+}

@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Article } from '../cards/cards.component';
 import { ArticleServiceService } from 'src/app/services/article-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 export interface Comment{
     author_id :string ;
     comment:string;
-    author_name:string;
+    author_name:string | null;
 }
 
 @Component({
@@ -19,6 +20,7 @@ export class ArticleComponent implements OnInit {
   constructor(
     private ArticleService:ArticleServiceService,
     private route: ActivatedRoute,
+    public auth: AuthService,
   ) {}
   ngOnInit() {
     this.getArticle();
@@ -37,17 +39,18 @@ export class ArticleComponent implements OnInit {
 
   
   comment:string ="";
-  newComment:Comment={
-    author_id :"1" ,
-    comment:"string",
-    author_name:"user name",
-  };
+ 
 
   addComment(){
     if(this.comment){
-      this.newComment.comment=this.comment;
-      this.ArticleService.addComment(this.id,this.newComment).subscribe(() => {
-          this.comments.unshift(this.newComment);
+      const  newComment:Comment={
+        author_id :"1" ,
+        comment:"string",
+        author_name:this.auth.getUsername(),
+      };
+      newComment.comment=this.comment;
+      this.ArticleService.addComment(this.id,newComment).subscribe(() => {
+          this.comments.unshift(newComment);
           this.comment="";
       })
     }

@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(email, password).subscribe({
       next: authResult => {
+        console.log(authResult);
         this.auth.setSession(authResult);
         this.loginSuccess = true;
         this.router.navigateByUrl('/');

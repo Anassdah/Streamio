@@ -24,8 +24,7 @@ blockquote {
   color: rgba(0,0,0,0.54);
 }
 #article_container{
-    width: 90%;
-    margin-left: 10%;
+    width: 100%;
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows :max-content;
@@ -34,7 +33,6 @@ blockquote {
 }
 #article{
     grid-area: article_area;
-    box-shadow: #272822 1px 1px 10px 1px;
     border: #272822 2px solid;
     padding: 10px;
     font-size: 20px;
@@ -42,15 +40,10 @@ blockquote {
 #owner_infos{
     grid-area:owner_infos_area;
     margin-top: 50%;
+    margin-left:10%;
+  
 }
-#owner_infos_container{
-    margin :20px;
-    padding : 20px;
-    border-radius: 20px;
-    border :1px solid black;
-    box-shadow: #272822 1px 1px 10px 1px;
 
-}
 #article_impression_contatiner{
     display :flex;
     flex-direction: row;
