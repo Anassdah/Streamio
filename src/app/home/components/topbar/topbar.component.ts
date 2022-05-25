@@ -18,5 +18,10 @@ export class TopbarComponent implements OnInit {
   goToLogin() {
     this.router.navigateByUrl("/login");
   }
+  gotoProfile() {
+    this.router.navigate(
+      ['/profile/'+ this.auth.getUser_id()]
+    );
+  } 
 
 }

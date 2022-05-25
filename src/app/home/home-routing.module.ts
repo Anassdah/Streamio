@@ -14,6 +14,7 @@ import { LivestreamsComponent } from './components/livestreams/livestreams.compo
 import { LoginComponent } from './components/login/login.component';
 import { StreamersComponent } from './components/streamers/streamers.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
     {
@@ -24,10 +25,15 @@ const routes: Routes = [
         path:'register',
         component:RegisterComponent
     },
+    
     {   
         path:'',
         component:WrapperComponent,
         children:[
+            {
+                path:'profile/:user_id',
+                component: ProfileComponent
+            },
             {
                 path:'images',
                 component :ImagesComponent

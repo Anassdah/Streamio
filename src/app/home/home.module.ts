@@ -42,6 +42,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { UserInfosComponent } from './components/user-infos/user-infos.component';
 
 
 @NgModule({
@@ -62,7 +65,9 @@ import { RegisterComponent } from './components/register/register.component';
     
     GamePageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    UserInfosComponent,
   ],
   imports: [
     CommonModule,
@@ -83,7 +88,9 @@ import { RegisterComponent } from './components/register/register.component';
     ToastrModule ,
     FileUploadModule,
     MatFormFieldModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    MatTabsModule
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

@@ -27,11 +27,15 @@ export class AuthService {
 
     localStorage.setItem('id_token', authResult.user.token);
     localStorage.setItem('username', authResult.user.username);
+    localStorage.setItem('user_id', authResult.user._id);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
   getUsername() {
     return localStorage.getItem("username");
+  }
+  getUser_id() {
+    return localStorage.getItem("user_id");
   }
 
   getExpiration() {
@@ -51,6 +55,7 @@ export class AuthService {
     //checks if current time is before expiration
     return moment().isBefore(this.getExpiration());
   }
+
 
   isLoggedOut() {
     return !this.isLoggedIn();

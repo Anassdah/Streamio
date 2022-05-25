@@ -11,5 +11,12 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  events=[
+    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000",
+    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000",
+    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000"
+  ]
+
+  
 
 }
