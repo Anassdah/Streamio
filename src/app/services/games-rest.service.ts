@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GamesRESTService {
 
-  private host = "http://localhost:4000";
+  private host = "http://localhost:4000/games";
 
   constructor(private http: HttpClient) { }
 
