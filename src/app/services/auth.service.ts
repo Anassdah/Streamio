@@ -49,6 +49,7 @@ export class AuthService {
     localStorage.removeItem("id_token");
     localStorage.removeItem("username");
     localStorage.removeItem("expires_at");
+    localStorage.removeItem('user_id');
   }
 
   isLoggedIn() {
