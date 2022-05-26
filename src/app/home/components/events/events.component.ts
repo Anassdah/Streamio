@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { EventsService } from 'src/app/services/events.service';
+
+
+export interface Event{
+  poster_url:string;
+  event_title:string;
+}
 
 @Component({
   selector: 'app-events',
@@ -7,15 +16,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(
+    private EventService:EventsService,
+    public auth: AuthService,
+  ) { }
+
+  events:Event[]=[];
   ngOnInit(): void {
+    this.getEvents();
   }
-  events=[
-    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000",
-    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000",
-    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000"
-  ]
+  getEvents():void{
+    this.EventService.getEvents().subscribe((events) => {
+      this.events = events;
+      console.log(events);
+    });
+  }
+  
+  
 
   
 

@@ -1,0 +1,32 @@
+<div style="display:flex;flex-direction:row;">
+    <div id="infos-container" >
+        <form>
+            <label for="fname">Event title :</label>
+            <input
+              type="text"
+              style="padding:15px;margin:15px"
+              [(ngModel)]="Event_title"
+              name="Article_title"
+              placeholder="Event title.."
+            />
+            <br>
+            <label for="fname"> Event Poster url:</label>
+            <input
+              type="text"
+              [(ngModel)]="poster_url"
+              style="padding:15px;margin:15px"
+              name="Article image url"
+              placeholder="Event Poster url"
+            />
+        </form>    
+        <div>
+            <button class="button-29" role="button" (click)="addEvent()">Add Event</button>
+        </div>
+    </div>
+    <div id="preview" >
+        <mat-card class="event-card">
+            <img mat-card-image src="{{ poster_url}}" alt="Poster Preview"style="height:20%">
+          </mat-card>
+    </div>
+
+</div>

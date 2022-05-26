@@ -3,7 +3,7 @@
 <div>
   <div *ngFor="let event of events">
     <mat-card class="event-card">
-        <img mat-card-image src="https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000" alt="Photo of a Shiba Inu"style="height:20%">
+        <img mat-card-image src="{{event.poster_url}}" alt="Photo of a Shiba Inu"style="height:20%">
         <div >
           <mat-card-actions>
             <button class="button-29" role="button" >INTERSTED</button>
