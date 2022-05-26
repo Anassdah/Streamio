@@ -27,7 +27,7 @@ export class GamePageComponent implements OnInit {
 
   private getGame(gameId: string) {
     this.rest.getGameById(gameId).subscribe(
-      data => {console.log(data);
+      data => {
         this.game = data;
       },
       err => {
