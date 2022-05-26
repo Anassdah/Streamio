@@ -49,11 +49,6 @@ export class AddArticleComponent implements OnInit {
           ['/articles/']
         );
       });
-
-
-
-
-
     }
   }
 }

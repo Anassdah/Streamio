@@ -44,13 +44,11 @@ export class ImagesComponent implements OnInit {
     }
     this.http.post<any>('http://localhost:3000/images', formdata)
       .subscribe((res:any) => {
-        console.log(res.path)
         res.path.forEach((item :any)=>{
           this.images.unshift({
             img_url : item
           })
         });
-        console.log(this.images);
         
     })
   }

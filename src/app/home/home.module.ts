@@ -45,6 +45,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UserInfosComponent } from './components/user-infos/user-infos.component';
+import { AddEventComponent } from './components/add-event/add-event.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { UserInfosComponent } from './components/user-infos/user-infos.component
     RegisterComponent,
     ProfileComponent,
     UserInfosComponent,
+    AddEventComponent,
   ],
   imports: [
     CommonModule,
