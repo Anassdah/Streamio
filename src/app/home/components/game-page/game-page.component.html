@@ -18,6 +18,7 @@
     <div *ngFor="let r of game.reviews">
         <mat-card>
             Rating : {{r.rating}} <br/>
+            By : <a [routerLink]="['/profile/'+r.user_id]">{{r.username}}</a> <br/>
             Review : {{r.desc}}
         </mat-card>
     </div>

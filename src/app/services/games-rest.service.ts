@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GamesRESTService {
 
-  private host = "http://localhost:4000/games";
+  private host = "http://localhost:4000";
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +23,6 @@ export class GamesRESTService {
   }
 
   public postReview(gameId: string, body: any) {
-    return this.http.post(this.host + "/games/" + gameId + "/reviews", body,{headers:{"userId":"randomUserId"}});
+    return this.http.post(this.host + "/games/" + gameId + "/reviews", body);
   }
 }
