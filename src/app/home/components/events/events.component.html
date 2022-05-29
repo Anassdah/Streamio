@@ -1,16 +1,38 @@
-
-
-<div>
-  <div *ngFor="let event of events">
-    <mat-card class="event-card">
-        <img mat-card-image src="{{event.poster_url}}" alt="Photo of a Shiba Inu"style="height:20%">
-        <div >
-          <mat-card-actions>
-            <button class="button-29" role="button" >INTERSTED</button>
-          </mat-card-actions>
-        </div>
-        
-      </mat-card>
-</div>
-</div>
-
+<mat-tab-group>
+  <mat-tab label="Discover">
+    <div *ngFor="let event of events">
+      <div *ngIf="!event.isregistred">
+        <mat-card class="event-card">
+          <img mat-card-image src="{{ event.poster_url }}" />
+          <div>
+            <mat-card-actions>
+              <button
+                [style.background-color]="registred ? 'green' : 'red'"
+                class="button-29"
+                role="button"
+                (click)="openDialog(event.event_id)"
+              >
+                {{ regis }}
+              </button>
+              <span style="font-weight:bold;font-size:12px;margin:5px;padding:5px;">{{event.nbr_registers}} are interested</span>
+            </mat-card-actions>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Already registed">
+    <div *ngFor="let event of events">
+      <div *ngIf="event.isregistred">
+        <mat-card class="event-card">
+          <img mat-card-image src="{{ event.poster_url }}" />
+          <div>
+            <mat-card-actions>
+              <span>{{event.nbr_registers}} are interested</span>
+            </mat-card-actions>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

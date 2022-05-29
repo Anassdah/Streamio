@@ -1,0 +1,25 @@
+
+<div style="font-size:20px;">
+  <div class="example-container">
+    <mat-form-field appearance="legacy" style="width:100%">
+      <mat-label>full Name</mat-label>
+      <input matInput placeholder="Placeholder" [(ngModel)]="fullname">
+      <mat-hint></mat-hint>
+    </mat-form-field> 
+  </div>
+<div class="example-container">
+  <mat-form-field appearance="fill" style="width:100%">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+<div>
+  <button  mat-button  class="button-29" (click)="close()"> Close</button>
+  <button class="button-29" role="button" (click)="register()" >Register</button>
+
+</div>
+
+</div>
+
+  
