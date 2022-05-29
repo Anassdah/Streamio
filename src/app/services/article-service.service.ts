@@ -13,6 +13,8 @@ export class ArticleServiceService {
   constructor(
     private http: HttpClient
   ) {}
+
+  //articles
   addArticle(article: any): Observable<any> {
     return this.http.post<any>(this.ArticleUrl, article, this.httpOptions);
   }

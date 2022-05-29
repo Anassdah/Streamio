@@ -16,7 +16,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { ArticleComponent } from './components/article/article.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 
@@ -46,6 +45,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UserInfosComponent } from './components/user-infos/user-infos.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 
 @NgModule({
@@ -70,6 +73,7 @@ import { AddEventComponent } from './components/add-event/add-event.component';
     ProfileComponent,
     UserInfosComponent,
     AddEventComponent,
+    RegisterFormComponent,
   ],
   imports: [
     CommonModule,
@@ -83,19 +87,23 @@ import { AddEventComponent } from './components/add-event/add-event.component';
     MatToolbarModule,
     MatMenuModule,
     MatSlideToggleModule,
-    MatFormFieldModule,
     MatCardModule,
     MarkdownModule.forRoot(),
     HttpClientModule,
     ToastrModule ,
     FileUploadModule,
-    MatFormFieldModule,
     ReactiveFormsModule ,
-    MatTabsModule
-
+    MatTabsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
   ]
 })
 export class HomeModule { }
