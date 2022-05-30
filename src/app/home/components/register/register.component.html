@@ -1,25 +1,26 @@
-<div>
-    <form>
-        <mat-form-field appearance="outline">
-            <mat-label>username</mat-label>
-            <input matInput placeholder="username" [formControl]="username">
-            <mat-hint>Hint</mat-hint>
-        </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>email</mat-label>
-        <input matInput placeholder="Email" [formControl]="email">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>password</mat-label>
-        <input matInput placeholder="Password" [formControl]="password" type="password">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>confirm password</mat-label>
-        <input matInput placeholder="Confirm password" [formControl]="password_confirm" type="password">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-    <button (click)="this.attemptRegistration()">Login</button>
-</form>
+<div id="background">
+    <div id="form">
+        <h1>Register</h1>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>username</mat-label>
+                <input matInput placeholder="username" [formControl]="username">
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>email</mat-label>
+                <input matInput placeholder="Email" [formControl]="email">
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput placeholder="Password" [formControl]="password" type="password">
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>confirm password</mat-label>
+                <input matInput placeholder="Confirm password" [formControl]="password_confirm" type="password">
+            </mat-form-field><br />
+            <div id="button-container">
+                <button mat-raised-button color="primary" (click)="this.attemptRegistration()">Register</button>
+            </div>
+        </form>
+    </div>
 </div>

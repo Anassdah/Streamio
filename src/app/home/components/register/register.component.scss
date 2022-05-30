@@ -1,0 +1,24 @@
+#background {
+    background-image:url("../../../../images/sidebar-bg.webp");
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#form {
+    background-color: white;
+    padding: 30px;
+    margin: auto;
+}
+
+#button-container {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 20px;
+}
+
+
+a {
+    cursor: pointer;
+}
