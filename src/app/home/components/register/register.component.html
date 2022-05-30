@@ -4,18 +4,22 @@
         <form>
             <mat-form-field appearance="outline">
                 <mat-label>username</mat-label>
+                <mat-icon matSuffix>account_circle</mat-icon>
                 <input matInput placeholder="username" [formControl]="username">
             </mat-form-field><br />
             <mat-form-field appearance="outline">
                 <mat-label>email</mat-label>
+                <mat-icon matSuffix>email</mat-icon>
                 <input matInput placeholder="Email" [formControl]="email">
             </mat-form-field><br />
             <mat-form-field appearance="outline">
                 <mat-label>password</mat-label>
+                <mat-icon matSuffix>lock</mat-icon>
                 <input matInput placeholder="Password" [formControl]="password" type="password">
             </mat-form-field><br />
             <mat-form-field appearance="outline">
                 <mat-label>confirm password</mat-label>
+                <mat-icon matSuffix>lock</mat-icon>
                 <input matInput placeholder="Confirm password" [formControl]="password_confirm" type="password">
             </mat-form-field><br />
             <div id="button-container">

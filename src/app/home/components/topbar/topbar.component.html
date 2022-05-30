@@ -17,10 +17,12 @@
       <mat-nav-list>
         <mat-list-item>
           <div class="center">
-            <label for="search" class="center">
-              <mat-icon>search</mat-icon>
-            </label>
-            <input id="search" [(ngModel)]="search" placeholder="Search">
+            <mat-form-field appearance="legacy">
+              <mat-label>Search</mat-label>
+              <mat-icon matSuffix>search</mat-icon>
+              <input matInput [(ngModel)]="search" placeholder="Search">
+          </mat-form-field>
+            <!--<input matInput id="search">-->
           </div>
         </mat-list-item>
         <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
