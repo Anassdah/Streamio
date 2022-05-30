@@ -49,6 +49,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

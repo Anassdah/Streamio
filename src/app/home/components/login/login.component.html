@@ -1,15 +1,21 @@
-<div>
+<div id="background">
+<div id="form">
+    <h1>Login</h1>
     <form>
         <mat-form-field appearance="outline">
             <mat-label>email</mat-label>
             <input matInput placeholder="Email" [formControl]="email">
-            <mat-hint>Hint</mat-hint>
         </mat-form-field>
+        <br/>
         <mat-form-field appearance="outline">
             <mat-label>password</mat-label>
             <input matInput placeholder="Password" [formControl]="password" type="password">
-            <mat-hint>Hint</mat-hint>
         </mat-form-field>
-        <button (click)="this.attemptLogin()">Login</button>
+        <br/>
+        <div id="button-container">
+            <button mat-raised-button color="primary" (click)="this.attemptLogin()">Login</button>
+        </div>
     </form>
+        <a (click)="goToRegistration()">Or create an account</a>
+</div>
 </div>
