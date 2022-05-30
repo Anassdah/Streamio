@@ -10,11 +10,11 @@
     <div style="display:flex;flex-direction:row;justify-content: space-around;">
         <div style="padding :10px;font-weight: bolder;">
             <span>
-                150 followers
+                {{followers}} {{followers>1?"followers":"follower"}}
             </span>
         </div>
         <div *ngIf="auth.getUser_id()!=user_id">
-            <button class="button-29" role="button">follow</button>
+            <button mat-raised-button color="primary" role="button">follow</button>
         </div>
     </div>
 </div>

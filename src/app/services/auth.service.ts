@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  //TODO: implement register methode
 
   register(username: string, email: string, password: string) {
     return this.http.post(this.authHost+"/register", {username: username, email: email, password: password});
@@ -29,6 +29,12 @@ export class AuthService {
     localStorage.setItem('username', authResult.user.username);
     localStorage.setItem('user_id', authResult.user._id);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  
+
+  getUsernameFromId(user_id: string): Observable<UsernameResponse> {
+    return this.http.get<UsernameResponse>(this.authHost + "/"+user_id+"/username");
   }
 
   getUsername() {
@@ -57,8 +63,11 @@ export class AuthService {
     return moment().isBefore(this.getExpiration());
   }
 
-
   isLoggedOut() {
     return !this.isLoggedIn();
   }
+}
+
+interface UsernameResponse {
+  username: string
 }
