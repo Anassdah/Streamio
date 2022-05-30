@@ -19,11 +19,11 @@ export class UserInfoService {
   }
 
   public followUser(userId:string) {
-    return this.http.get(this.infoHost + "/" + userId + "/follow");
+    return this.http.post(this.infoHost + "/" + userId + "/follow",{});
   }
 
   public unfollowUser(userId:string) {
-    return this.http.get(this.infoHost + "/" + userId + "/unfollow");
+    return this.http.post(this.infoHost + "/" + userId + "/unfollow",{});
   }
 
 }

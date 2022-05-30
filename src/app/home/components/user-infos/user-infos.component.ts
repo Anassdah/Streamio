@@ -15,19 +15,21 @@ export class UserInfosComponent implements OnInit {
     private userInfo: UserInfoService
   ) { }
   user_name: string = "";
-  followers: Number = NaN;
+  followers: Array<followRelation> = [];
+  isFollowed: boolean = false;
 
   ngOnInit(): void {
-    this.getFollowersCount();
+    this.getFollowers();
     this.getUsername();
   }
 
-  private getFollowersCount() {
+  private getFollowers() {
     if (this.user_id) {
       this.userInfo.getFollowers(this.user_id).subscribe(value => {
-        this.followers = Number((<Array<Object>>value).length);
+        this.followers = <Array<followRelation>>value;
+        this.checkFollowers();
       }, err => {
-        this.followers = NaN;
+        this.followers = [];
         console.log(err)
       })
     }
@@ -42,4 +44,31 @@ export class UserInfosComponent implements OnInit {
       })
     }
   }
+
+  public checkFollowers() {
+    this.isFollowed = false;
+    this.followers.forEach(follows => {
+      console.log(follows.followed_by);
+      console.log(this.auth.getUser_id());
+      if (follows.followed_by == this.auth.getUser_id()) {
+        this.isFollowed = true;
+      }
+    });
+  }
+
+  public toggleFollow() {
+    if (this.user_id) {
+      if(this.isFollowed){
+        this.userInfo.unfollowUser(this.user_id).subscribe(value => this.getFollowers(), err => console.log(err));
+      }else{
+        this.userInfo.followUser(this.user_id).subscribe(value => this.getFollowers(), err => console.log(err));
+      }
+    }
+  }
+
+}
+
+interface followRelation {
+  user_id: string,
+  followed_by: string
 }
