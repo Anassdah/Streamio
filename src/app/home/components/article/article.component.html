@@ -66,8 +66,8 @@
                 </div>
             </div>
         </div>
-        <div id="owner_infos">
-            <app-user-infos ></app-user-infos>
+        <div id="owner_infos" *ngIf="article">
+            <app-user-infos [user_id]="article?.author_id"></app-user-infos>
         </div>
     </div>
 
