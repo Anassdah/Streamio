@@ -1,6 +1,5 @@
 <mat-toolbar>
   <mat-toolbar-row>
-
     <div>
       <div *ngIf="auth.isLoggedIn()">
         <button mat-button [matMenuTriggerFor]="menu">Add</button>
@@ -8,7 +7,7 @@
           <a mat-menu-item [routerLink]="'add_article'">Add article </a>
           <a mat-menu-item>Go live </a>
           <a mat-menu-item [routerLink]="'images'">Upload images</a>
-          <a mat-menu-item [routerLink]="'addEvent'">Add Event</a>
+          <a mat-menu-item [routerLink]="'addEvent'" *ngIf="auth.getUserRole()=='admin'">Add Event</a>
         </mat-menu>
       </div>
     </div>

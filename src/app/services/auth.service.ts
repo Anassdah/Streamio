@@ -28,11 +28,15 @@ export class AuthService {
     localStorage.setItem('id_token', authResult.user.token);
     localStorage.setItem('username', authResult.user.username);
     localStorage.setItem('user_id', authResult.user._id);
+    localStorage.setItem('role', authResult.user.role);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
   getUsername() {
     return localStorage.getItem("username");
+  }
+  getUserRole() {
+    return localStorage.getItem("role");
   }
   getUser_id() {
     return localStorage.getItem("user_id");
@@ -50,6 +54,7 @@ export class AuthService {
     localStorage.removeItem("username");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("user_id");
+    localStorage.removeItem("role");
   }
 
   isLoggedIn() {
