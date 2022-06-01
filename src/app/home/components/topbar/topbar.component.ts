@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -37,7 +37,7 @@ export class TopbarComponent implements OnInit {
       ['/profile/'+ this.auth.getUser_id()]
     );
   } 
-  sendMessage(): void {
+  sendState(): void {
     // send message to subscribers via observable subject
     this.Service.sendUpdate(this.toggler);
 }

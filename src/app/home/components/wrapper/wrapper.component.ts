@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { darkmodeService } from 'src/app/services/darkmode.service';
 
 @Component({
   selector: 'app-wrapper',
   templateUrl: './wrapper.component.html',
-  styleUrls: ['./wrapper.component.scss'],
+  styleUrls: ['./wrapper.component.scss']
 })
 export class WrapperComponent implements OnDestroy {
   isExpanded:boolean=false;
@@ -25,7 +25,7 @@ export class WrapperComponent implements OnDestroy {
      });
   }
   ngOnDestroy() { // It's a good practice to unsubscribe to ensure no memory leaks
-    this.subscriptionName.unsubscribe();
+    //this.subscriptionName.unsubscribe();
 }
 
 }

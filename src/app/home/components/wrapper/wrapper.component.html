@@ -1,5 +1,4 @@
-
-<div [ngClass]="{'darkMode':messageReceived}">
+<body [ngClass]="{'darkMode':messageReceived}">
     <mat-sidenav-container autosize>
         <mat-sidenav #sidenav mode="side" opened="true" [ngClass]="{'expand':isExpanded}" >
             <mat-nav-list>
@@ -41,11 +40,10 @@
         </mat-sidenav>
         <app-topbar [ngClass]="{'margin':!isExpanded}"></app-topbar>
     
-        <div class="content">
+        <div class="content darkMode">
             
             <router-outlet></router-outlet>
     
         </div>
     </mat-sidenav-container>
-    
-</div>
+</body>
