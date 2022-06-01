@@ -101,7 +101,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,
     {
       provide: MatDialogRef,
       useValue: {}

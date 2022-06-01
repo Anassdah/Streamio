@@ -18,6 +18,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 import { HttpClientModule } from '@angular/common/http';
 import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
+import { TopbarComponent } from './home/components/topbar/topbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent
   ],
   bootstrap: [AppComponent]
 })
