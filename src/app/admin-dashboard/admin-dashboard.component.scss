@@ -1,5 +1,10 @@
+#scroll {
+  overflow: auto;
+}
+
 .grid-container {
   margin: 20px;
+  overflow: auto;
 }
 
 .dashboard-card {
@@ -18,4 +23,9 @@
 
 .dashboard-card-content {
   text-align: center;
+}
+
+#back-button {
+  text-decoration: none;
+  color: white;
 }
