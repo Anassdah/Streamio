@@ -23,5 +23,11 @@ export class EventsService {
     console.log(infos,event_id);
     return this.http.post(this.url+event_id,infos,this.httpOptions);
   }
+  public getEvents_withTags(tags:any):Observable<any>{
+    let query="";
+    if(tags.length!=0) query="?tags[]="+tags.join("&tags[]=");
+    console.log(this.url+query);
+    return this.http.get(this.url+query,this.httpOptions);
+  }
 
 }

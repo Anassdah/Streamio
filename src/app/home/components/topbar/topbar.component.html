@@ -1,9 +1,13 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <mat-icon>brightness_5</mat-icon>
-    <mat-slide-toggle [formControl]="toggleControl" (click)="toggler=!toggler;sendState()">
+    <mat-slide-toggle
+      [formControl]="toggleControl"
+      (click)="toggler = !toggler; sendState()"
+    >
+      <mat-icon>bedtime</mat-icon>
+      <mat-icon>brightness_5</mat-icon>
     </mat-slide-toggle>
-    <mat-icon>bedtime</mat-icon>
+
     <div>
       <div *ngIf="auth.isLoggedIn()">
         <button mat-button [matMenuTriggerFor]="menu">Add</button>
@@ -11,35 +15,40 @@
           <a mat-menu-item [routerLink]="'add_article'">Add article </a>
           <a mat-menu-item>Go live </a>
           <a mat-menu-item [routerLink]="'images'">Upload images</a>
-          <a mat-menu-item [routerLink]="'addEvent'" *ngIf="auth.getUserRole()=='admin'">Add Event</a>
+          <a
+            mat-menu-item
+            [routerLink]="'addEvent'"
+            *ngIf="auth.getUserRole() == 'admin'"
+            >Add Event</a
+          >
         </mat-menu>
       </div>
     </div>
     <div>
-
       <mat-nav-list>
         <mat-list-item>
           <div class="center">
             <mat-form-field appearance="legacy">
               <mat-label>Search</mat-label>
               <mat-icon matSuffix>search</mat-icon>
-              <input matInput [(ngModel)]="search" placeholder="Search">
-          </mat-form-field>
+              <input matInput [(ngModel)]="search" placeholder="Search" />
+            </mat-form-field>
             <!--<input matInput id="search">-->
           </div>
         </mat-list-item>
-        <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
+        <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()"
+          >Se connecter</mat-list-item
+        >
         <mat-list-item *ngIf="auth.isLoggedIn()">
-          <button mat-button [matMenuTriggerFor]="menu">{{auth.getUsername()}}</button>
+          <button mat-button [matMenuTriggerFor]="menu">
+            {{ auth.getUsername() }}
+          </button>
           <mat-menu #menu="matMenu">
-          <a mat-menu-item (click)="gotoProfile()">Profile</a>
-          <a mat-menu-item (click)="auth.logout()">logout</a>
-        </mat-menu>
-
+            <a mat-menu-item (click)="gotoProfile()">Profile</a>
+            <a mat-menu-item (click)="auth.logout()">logout</a>
+          </mat-menu>
         </mat-list-item>
       </mat-nav-list>
     </div>
-    
   </mat-toolbar-row>
-
 </mat-toolbar>

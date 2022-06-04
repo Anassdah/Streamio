@@ -13,8 +13,8 @@ import { darkmodeService } from 'src/app/services/darkmode.service';
 export class TopbarComponent implements OnInit {
   @Input() search:string="";
   @HostBinding('class') className = '';
-  toggleControl = new FormControl(false);
-  toggler: boolean =false;   
+  toggleControl = new FormControl(true);
+  toggler: boolean =true;   
   constructor(public auth: AuthService, private router: Router, private overlay: OverlayContainer,private Service: darkmodeService) { }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class TopbarComponent implements OnInit {
   } 
   sendState(): void {
     // send message to subscribers via observable subject
-    this.Service.sendUpdate(this.toggler);
+    this.Service.sendUpdate(false);
 }
   
 
