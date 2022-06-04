@@ -22,6 +22,10 @@ export class GamesRESTService {
     return this.http.get(this.host+"/games/"+gameId+"/reviews");
   }
 
+  public getUserReviews(user_id: string) {
+    return this.http.get<any>(this.host + "/games/user/" + user_id + "/reviews");
+  }
+
   public postReview(gameId: string, body: any) {
     return this.http.post(this.host + "/games/" + gameId + "/reviews", body);
   }

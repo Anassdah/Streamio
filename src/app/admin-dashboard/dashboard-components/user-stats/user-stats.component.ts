@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-user-stats',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserStatsComponent implements OnInit {
 
-  constructor() { }
+  users : Array<any> | undefined;
 
-  ngOnInit(): void {
+  constructor(private dashboardService: DashboardService) { }
+
+  async ngOnInit() {
+    this.users = await this.dashboardService.getAllUsers();
   }
 
 }

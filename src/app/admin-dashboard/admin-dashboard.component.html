@@ -1,7 +1,9 @@
 <div class="grid-container">
-  <a id="back-button" [routerLink]="'/'">
-    <mat-icon>keyboard_backspace</mat-icon>
-  </a>
-  <h1 class="mat-h1">Dashboard</h1>
+  <div style="display: flex;">
+    <a id="back-button" [routerLink]="'/'" style="margin-right: 40px;">
+      <mat-icon>cancel</mat-icon>
+    </a>
+    <h1 class="mat-h1" id="dashboard-title" [routerLink]="'/dashboard'">Dashboard</h1>
+  </div>
   <router-outlet></router-outlet>
 </div>

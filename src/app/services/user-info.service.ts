@@ -11,7 +11,7 @@ export class UserInfoService {
   constructor(private http: HttpClient) { }
 
   public getFollowers(userId:string) {
-    return this.http.get(this.infoHost + "/" + userId + "/followers");
+    return this.http.get<Array<any>>(this.infoHost + "/" + userId + "/followers");
   }
 
   public getFollowing(userId:string) {

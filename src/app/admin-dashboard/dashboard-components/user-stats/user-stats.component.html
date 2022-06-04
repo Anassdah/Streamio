@@ -1,1 +1,12 @@
-<p>user-stats works!</p>
+<mat-grid-list cols="1" rowHeight="6em">
+    <mat-grid-tile *ngFor="let user of users">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div><b>Username: </b>{{user.username}}</div>
+          <div><b>Email: </b>{{user.email}}</div>
+          <div><b>Followers: </b>{{user.followers}}</div>
+          <div><b>Articles: </b>{{user.articles}}</div>
+          <div><b>Reviews: </b>{{user.reviews}}</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
