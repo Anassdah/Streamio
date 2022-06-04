@@ -74,7 +74,7 @@ $testproject-theme: mat.define-light-theme((
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; }
+body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; background-color: #707070;}
 button{
   text-decoration: none;
   background: none;

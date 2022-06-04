@@ -16,6 +16,7 @@ import { StreamersComponent } from './components/streamers/streamers.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
     {
@@ -26,7 +27,10 @@ const routes: Routes = [
         path:'register',
         component:RegisterComponent
     },
-    
+    {
+        path:'dashboard',
+        component:AdminDashboardComponent
+    },    
     {   
         path:'',
         component:WrapperComponent,

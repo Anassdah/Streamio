@@ -50,6 +50,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -67,7 +69,6 @@ import {MatButtonModule} from '@angular/material/button';
     ArticleComponent,
     AddArticleComponent,
     ImagesComponent,
-    
     GamePageComponent,
     LoginComponent,
     RegisterComponent,
@@ -75,6 +76,7 @@ import {MatButtonModule} from '@angular/material/button';
     UserInfosComponent,
     AddEventComponent,
     RegisterFormComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -98,7 +100,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,

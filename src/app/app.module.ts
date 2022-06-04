@@ -19,6 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { TopbarComponent } from './home/components/topbar/topbar.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +39,13 @@ import { TopbarComponent } from './home/components/topbar/topbar.component';
     FormsModule,
     FileUploadModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent
