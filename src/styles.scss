@@ -88,7 +88,7 @@ $testproject-theme: mat.define-light-theme((
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; }
+body { margin: 0; font-family: Georgia, 'Times New Roman', Times, serif; background-color: #707070;}
 button{
   text-decoration: none;
   background: none;
@@ -119,7 +119,6 @@ button:hover{
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body, app-root, .app-frame {
-  overflow: hidden;
   margin: 0;
   height: 100%;
   box-sizing: border-box;

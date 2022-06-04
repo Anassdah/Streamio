@@ -51,10 +51,11 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatGridListModule} from '@angular/material/grid-list'; 
 
 @NgModule({
   declarations: [
@@ -71,7 +72,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ArticleComponent,
     AddArticleComponent,
     ImagesComponent,
-    
     GamePageComponent,
     LoginComponent,
     RegisterComponent,
@@ -79,6 +79,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UserInfosComponent,
     AddEventComponent,
     RegisterFormComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     CommonModule,
