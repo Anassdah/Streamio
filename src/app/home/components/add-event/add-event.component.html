@@ -1,32 +1,66 @@
-<div style="display:flex;flex-direction:row;">
-    <div id="infos-container" >
-        <form>
-            <label for="fname">Event title :</label>
-            <input
-              type="text"
-              style="padding:15px;margin:15px"
-              [(ngModel)]="Event_title"
-              name="Article_title"
-              placeholder="Event title.."
-            />
-            <br>
-            <label for="fname"> Event Poster url:</label>
-            <input
-              type="text"
-              [(ngModel)]="poster_url"
-              style="padding:15px;margin:15px"
-              name="Article image url"
-              placeholder="Event Poster url"
-            />
-        </form>    
-        <div>
-            <button class="button-29" role="button" (click)="addEvent()">Add Event</button>
-        </div>
-    </div>
-    <div id="preview" >
-        <mat-card class="event-card">
-            <img mat-card-image src="{{ poster_url}}" alt="Poster Preview"style="height:20%">
-          </mat-card>
-    </div>
+<div style="display: flex; flex-direction: row">
+  <div id="infos-container">
+    <form [formGroup]="form">
+      <label for="fname">Event title :</label>
+      <input
+        type="text"
+        style="padding: 15px; margin: 15px"
+        formControlName="Event_title"
+        name="Article_title"
+        placeholder="Event title.."
+      />
+      <br />
+      <label for="fname"> Event Poster url:</label>
+      <input
+        type="text"
+        formControlName="poster_url"
+        style="padding: 15px; margin: 15px"
+        name="Article image url"
+        placeholder="Event Poster url"
+      />
+      <span>Choose a date :</span>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <mat-hint>   MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </form>
+    <label > Add some Tags:</label>
+    <mat-form-field class="chip-list" appearance="fill">
+      <mat-label>Tags </mat-label>
+      <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip
+          *ngFor="let tag of tags"
+          (removed)="remove(tag)"
+        >
+          {{ tag }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          placeholder="New tag..."
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
 
+    <div>
+      <button class="button-29" role="button" (click)="addEvent()">
+        Add Event
+      </button>
+    </div>
+  </div>
+  <div id="preview">
+    <mat-card class="event-card">
+      <img
+        mat-card-image
+        src="{{ form.value.poster_url }}"
+        alt="Poster Preview"
+        style="height: 20%"
+      />
+    </mat-card>
+  </div>
 </div>

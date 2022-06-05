@@ -2,20 +2,12 @@
     <div id="article_container">
         <div id="article">
             <div id="article_image"  >
-                <img src="{{article?.image_url}}" alt="" srcset="" style="height:600px;width:100%">
             </div>
             <div id="article_content" style="padding:10px">
                 <div markdown [data]="article?.content"></div>
             </div>
             <div id="article_impression_contatiner">
-                <div style="margin :20px">
-                    <span class="material-icons md-48">thumb_up_alt</span>
-                    <span id="article_likes">15 Like</span>
-                </div>
-                <div style="margin :20px">
-                    <span class="material-icons md-48">comment</span>
-                    <span id="article_comments"> 15 Comments</span>
-                </div>
+                
             </div>
             <div *ngIf="!auth.isLoggedIn()">
                 <h1> Please loging </h1>

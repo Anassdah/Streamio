@@ -13,12 +13,14 @@ import { darkmodeService } from 'src/app/services/darkmode.service';
 export class TopbarComponent implements OnInit {
   @Input() search:string="";
   @HostBinding('class') className = '';
-  toggleControl = new FormControl(false);
-  toggler: boolean =false;   
-  constructor(public auth: AuthService, private router: Router, private overlay: OverlayContainer,private Service: darkmodeService) { }
+  toggleControl = new FormControl(JSON.parse(localStorage.getItem('togglerState') || 'false'));
+  constructor(public auth: AuthService, private router: Router, private overlay: OverlayContainer,private darkmode: darkmodeService) {
+
+   }
 
   ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((darkMode) => {
+   
+    /*this.toggleControl.valueChanges.subscribe((darkMode) => {
       const darkClassName = 'darkMode';
       this.className = darkMode ? darkClassName : '';
       if (darkMode) {
@@ -26,7 +28,15 @@ export class TopbarComponent implements OnInit {
       } else {
         this.overlay.getContainerElement().classList.remove(darkClassName);
       }
+    });*/
+    if(this.toggleControl.value){this.darkmode.sendUpdate(this.toggleControl.value);}
+    this.toggleControl.valueChanges.subscribe(() => {
+      localStorage.setItem('togglerState', JSON.stringify(this.toggleControl.value));
+      this.sendState();
+
     });
+
+    //console.log(this.toggleControl.value);
   }
 
   goToLogin() {
@@ -39,9 +49,8 @@ export class TopbarComponent implements OnInit {
   } 
   sendState(): void {
     // send message to subscribers via observable subject
-    this.Service.sendUpdate(this.toggler);
+    this.darkmode.sendUpdate(this.toggleControl.value);
 }
-  
 
 }
 

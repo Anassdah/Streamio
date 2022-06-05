@@ -18,6 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ArticleComponent } from './components/article/article.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -56,6 +57,8 @@ import { NgAmpModule } from 'ng-amp';
 import { StartStreamComponent } from './start-stream/start-stream.component';
 import { WatchComponent } from './watch/watch.component';
 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -107,7 +110,10 @@ import { WatchComponent } from './watch/watch.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatGridListModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,
