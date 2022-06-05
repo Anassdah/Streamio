@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
+import { Component, OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { darkmodeService } from 'src/app/services/darkmode.service';
 
@@ -10,16 +10,15 @@ import { darkmodeService } from 'src/app/services/darkmode.service';
 export class WrapperComponent implements OnDestroy {
   isExpanded:boolean=false;
   linkstatue:string=window.location.pathname.split("/")[1];
-  state:boolean=false;
-  messageReceived: boolean=false;
-  private subscriptionName: Subscription; //important to create a subscription
+  messageReceived: boolean=true;
+  subscriptionName: Subscription; //important to create a subscription
   samelink(link:string):boolean{
     if (link==this.linkstatue){return true}
     return false 
   }
-  constructor(private Service:darkmodeService){
+  constructor(private darkmode:darkmodeService){
      // subscribe to sender component messages
-     this.subscriptionName= this.Service.getUpdate().subscribe
+     this.subscriptionName= this.darkmode.getUpdate().subscribe
      ((/*state*/) => { //message contains the data sent from service
      this.messageReceived = !this.messageReceived;
      });

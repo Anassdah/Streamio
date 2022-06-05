@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
         private subjectName = new Subject<any>(); //need to create a subject
     
         sendUpdate(state: boolean) { //the component that wants to update something, calls this fn
-            this.subjectName.next({ text: state }); //next() will feed the value in Subject
+            this.subjectName.next(state); //next() will feed the value in Subject
         }
     
         getUpdate(): Observable<any> { //the receiver component calls this function 
