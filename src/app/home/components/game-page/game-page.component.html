@@ -4,8 +4,6 @@
         <div id="game-info">
             <h1 id="game-title"><b>{{game.name}}</b></h1>
             <br />
-
-            <br />
             <div id="game-rating">
                 <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
                     {{ratingStar(i,game.rating)}}
