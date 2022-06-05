@@ -9,7 +9,7 @@
         <button mat-button [matMenuTriggerFor]="menu">Add</button>
         <mat-menu #menu="matMenu">
           <a mat-menu-item [routerLink]="'add_article'">Add article </a>
-          <a mat-menu-item>Go live </a>
+          <a mat-menu-item [routerLink]="'stream'">Go live </a>
           <a mat-menu-item [routerLink]="'images'">Upload images</a>
           <a mat-menu-item [routerLink]="'addEvent'" *ngIf="auth.getUserRole()=='admin'">Add Event</a>
         </mat-menu>

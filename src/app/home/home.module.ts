@@ -52,6 +52,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
+import { NgAmpModule } from 'ng-amp';
+import { StartStreamComponent } from './start-stream/start-stream.component';
+import { WatchComponent } from './watch/watch.component';
 
 
 @NgModule({
@@ -77,12 +80,15 @@ import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.comp
     AddEventComponent,
     RegisterFormComponent,
     AdminDashboardComponent,
+    StartStreamComponent,
+    WatchComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
     CarouselModule,
+    NgAmpModule,
     //Material modules
     MatSidenavModule,
     MatIconModule,
