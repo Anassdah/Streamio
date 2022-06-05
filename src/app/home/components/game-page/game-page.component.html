@@ -1,26 +1,69 @@
-
 <div *ngIf="game">
-    <div >
-        <img src="{{ game.image }}" class="w-100" alt="">
-        <div>{{game.name}}<br/>Rating: {{game.rating}}</div>
-    </div>
-    
-    <mat-card>
-        <form>
-            <label for="rating">Rating: </label><br/>
-            <input id="rating" type="text" [formControl]="rating" required><br/>
-            <label for="desc">Description: </label><br/>
-            <input id="desc" type="text" [formControl]="desc" required><br/>
-            <button type="button" (click)="submitReview()">Submit</button>
-        </form>
-    </mat-card>
-        
-    <div *ngFor="let r of game.reviews">
-        <mat-card>
-            Rating : {{r.rating}} <br/>
-            By : <a [routerLink]="['/profile/'+r.user_id]">{{r.username}}</a> <br/>
-            Review : {{r.desc}}
-        </mat-card>
-    </div>
+    <div id="game-banner">
+        <img id="game-poster" src="{{ game.image }}" class="w-100" alt="">
+        <div id="game-info">
+            <h1 id="game-title"><b>{{game.name}}</b></h1>
+            <br />
 
-</div> 
+            <br />
+            <div id="game-rating">
+                <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
+                    {{ratingStar(i,game.rating)}}
+                </mat-icon>
+                ({{game.rating.toFixed(2)}})
+            </div>
+            <br />
+            <div>{{game.description}}</div>
+        </div>
+    </div>
+    <mat-tab-group>
+        <mat-tab label="Reviews">
+            <mat-card *ngIf="auth.isLoggedIn()" style="margin-top: 10px;margin-bottom: 10px">
+                <h1>Submit review:</h1>
+                <form>
+                    <div class="rating">
+                        <span>
+                            Rating {{rating.value}} of {{ratings.max}}
+                        </span>
+                        <div>
+                            <ngx-material-rating name="rating" [color]="ratings.color" [formControl]="rating"
+                                [max]="ratings.max">
+                            </ngx-material-rating>
+                        </div>
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <mat-icon matSuffix>edit</mat-icon>
+                        <input matInput placeholder="description" [formControl]="desc">
+                    </mat-form-field>
+                    <div id="button-container">
+                        <button mat-raised-button color="primary" (click)="submitReview()">Submit</button>
+                    </div>
+                </form>
+            </mat-card>
+            <h1>User reviews</h1>
+            <div class="review-card" *ngFor="let r of game.reviews.reverse()">
+                <mat-card>
+                    <div class="user-name"><b>By : <span class="user-link" [routerLink]="['/profile/'+r.user_id]">{{r.username}}</span></b></div>
+                    <br />
+                    <div class="user-rating">
+                        <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
+                            {{ratingStar(i,r.rating)}}
+                        </mat-icon> ({{r.rating}})
+                    </div>
+                    <br />
+                    {{r.desc}}
+                </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Videos">
+            videos tab
+        </mat-tab>
+        <mat-tab label="Events">
+            events tab
+        </mat-tab>
+
+    </mat-tab-group>
+
+
+</div>

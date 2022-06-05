@@ -56,7 +56,7 @@ import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.comp
 import { NgAmpModule } from 'ng-amp';
 import { StartStreamComponent } from './start-stream/start-stream.component';
 import { WatchComponent } from './watch/watch.component';
-
+import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 
@@ -113,7 +113,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatDatepickerModule,
     MatNativeDateModule,
     MatChipsModule,
-    MatGridListModule
+    MatGridListModule,
+    NgxMaterialRatingModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,

@@ -23,6 +23,8 @@
     "ng-amp": "^2.0.2",
     "ng2-file-upload": "^1.4.0",
     "ngx-markdown": "^13.1.0",
+    "ngx-material-rating": "^2.0.0",
+    "ngx-range": "^1.1.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

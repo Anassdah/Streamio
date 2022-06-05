@@ -1,0 +1,39 @@
+#game-banner {
+    display:flex;
+    margin-bottom: 20px;
+}
+
+#game-info {
+    margin:20px;
+}
+
+#game-title {
+    font-size:xx-large;
+}
+
+#game-rating {
+    display: flex;
+    align-items: center;
+}
+
+.review-card {
+    margin-top: 10px;
+}
+
+.star {
+    margin-right: 5px;
+}
+
+.user-rating {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-size: large;
+}
+
+.user-link {
+    text-decoration: none;
+    cursor: pointer;
+}
