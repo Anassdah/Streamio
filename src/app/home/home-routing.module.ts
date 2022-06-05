@@ -16,6 +16,9 @@ import { StreamersComponent } from './components/streamers/streamers.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
+import { SiteStatsComponent } from '../admin-dashboard/dashboard-components/site-stats/site-stats.component';
+import { UserStatsComponent } from '../admin-dashboard/dashboard-components/user-stats/user-stats.component';
 
 const routes: Routes = [
     {
@@ -26,7 +29,20 @@ const routes: Routes = [
         path:'register',
         component:RegisterComponent
     },
-    
+    {
+        path:'dashboard',
+        component:AdminDashboardComponent,
+        children: [
+            {
+                path:'',
+                component:SiteStatsComponent
+            },
+            {
+                path:'users',
+                component:UserStatsComponent
+            }
+        ]
+    },    
     {   
         path:'',
         component:WrapperComponent,

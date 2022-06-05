@@ -20,7 +20,6 @@ export class WrapperComponent implements OnDestroy {
      // subscribe to sender component messages
      this.subscriptionName= this.darkmode.getUpdate().subscribe
      ((/*state*/) => { //message contains the data sent from service
-     this.messageReceived = !this.messageReceived;
      });
   }
   ngOnDestroy() { // It's a good practice to unsubscribe to ensure no memory leaks

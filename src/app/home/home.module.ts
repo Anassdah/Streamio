@@ -18,6 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ArticleComponent } from './components/article/article.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -50,7 +51,11 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,6 @@ import {MatButtonModule} from '@angular/material/button';
     ArticleComponent,
     AddArticleComponent,
     ImagesComponent,
-    
     GamePageComponent,
     LoginComponent,
     RegisterComponent,
@@ -75,6 +79,7 @@ import {MatButtonModule} from '@angular/material/button';
     UserInfosComponent,
     AddEventComponent,
     RegisterFormComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -98,7 +103,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatGridListModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,
