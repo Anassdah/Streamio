@@ -16,7 +16,7 @@
     </div>
     <mat-tab-group>
         <mat-tab label="Reviews">
-            <mat-card *ngIf="auth.isLoggedIn()" style="margin-top: 10px;margin-bottom: 10px">
+            <mat-card *ngIf="auth.isLoggedIn()" style="margin-top: 10px;">
                 <h1>Submit review:</h1>
                 <form>
                     <div class="rating">
@@ -39,7 +39,7 @@
                     </div>
                 </form>
             </mat-card>
-            <h1>User reviews</h1>
+            <h1 style="margin-top:20px">User reviews</h1>
             <div class="review-card" *ngFor="let r of game.reviews.reverse()">
                 <mat-card>
                     <div class="user-name"><b>By : <span class="user-link" [routerLink]="['/profile/'+r.user_id]">{{r.username}}</span></b></div>

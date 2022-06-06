@@ -1,0 +1,31 @@
+<div id="feedContainer">
+    <mat-card class="element-card" *ngFor="let element of feed">
+
+        <mat-card-header *ngIf="element.type == 'review'">
+            <mat-card-title>{{getUsername(element.user_id)}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="element.type == 'review'">
+            <div class="user-rating">
+                <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
+                    {{ratingStar(i,element.rating)}}
+                </mat-icon> ({{element.rating}})
+            </div>
+            <br />
+            {{element.desc}}
+        </mat-card-content>
+
+        <mat-card-header *ngIf="element.type == 'review'">
+            <mat-card-title>{{getUsername(element.user_id)}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="element.type == 'review'">
+            <div class="user-rating">
+                <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
+                    {{ratingStar(i,element.rating)}}
+                </mat-icon> ({{element.rating}})
+            </div>
+            <br />
+            {{element.desc}}
+        </mat-card-content>
+
+    </mat-card>
+</div>
