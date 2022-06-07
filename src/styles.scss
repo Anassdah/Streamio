@@ -118,6 +118,9 @@ button:hover{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a{
+  color: green;
+}
 html, body, app-root, .app-frame {
   margin: 0;
   height: 100%;

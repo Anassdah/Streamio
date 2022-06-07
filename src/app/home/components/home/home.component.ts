@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Article } from 'src/app/models/article';
 import { AuthService } from 'src/app/services/auth.service';
 import { FeedService } from 'src/app/services/feed.service';
 
@@ -11,10 +13,16 @@ export class HomeComponent implements OnInit {
 
   public feed: any[] = [];
 
-  constructor(private feedService: FeedService, public auth: AuthService) { }
+  constructor(private feedService: FeedService, public auth: AuthService,private router: Router) { }
+  gotoArticle(article: Article) {
+    this.router.navigate(
+      ['/article/',article._id]
+    );
+  } 
 
   async ngOnInit() {
     let rawFeed = await this.feedService.getFeed();
+    console.log(rawFeed);
     if(rawFeed){
       let reviews = rawFeed.reviews;
       let articles = rawFeed.articles;

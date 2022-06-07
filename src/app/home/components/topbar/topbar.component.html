@@ -1,9 +1,12 @@
 <mat-toolbar>
-  <mat-toolbar-row>
-    <mat-icon>bedtime</mat-icon>
+  <mat-toolbar-row >
+    <div style="width:max-content">
+      <mat-icon>bedtime</mat-icon>
     <mat-slide-toggle [formControl]="toggleControl">
     </mat-slide-toggle>
     <mat-icon>brightness_5</mat-icon>
+    </div>
+    
     <div>
       <div *ngIf="auth.isLoggedIn()">
         <button mat-button [matMenuTriggerFor]="menu">Add</button>

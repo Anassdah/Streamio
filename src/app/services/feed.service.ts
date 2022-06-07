@@ -18,7 +18,10 @@ export class FeedService {
     let user_id = await this.auth.getUser_id();
     if(user_id) {
       let following = await this.userInfoService.getFollowing(user_id).toPromise();
+      console.log(following);
       feed = await this.http.post<RawFeed>(this.feedHost, {"following": following}).toPromise();
+    }else{
+      feed = await this.http.post<RawFeed>(this.feedHost, {"get_all": true }).toPromise();
     }
     return feed;
   }

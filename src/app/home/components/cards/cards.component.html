@@ -1,27 +1,17 @@
 <!-- Cards -->
-<div class="row" fxLayout="row wrap" fxLayoutGap="30px grid">
-    <div fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%" *ngFor="let card of cards" >
-      <mat-card class="overflow-hidden">
-        <div>
-          <img src="{{ card.image_url }}" class="w-100" alt="">
-        </div>
-        <mat-card-content>
-          <div>
-            <p class="fs-18 lh-lg fw-medium">
-              {{card.title}}
-            </p>
-            <p class="op-7">
-              {{card.description}}
-            </p>
-            <div class="align">
-              <button  mat-button class="btn  fw-normal mt-4" (click)="gotoArticle(card)">Learn More</button>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-      
-    </div>
-  </div>
+<div *ngFor="let card of cards">
+  <mat-card class="element-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ card.title }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{ card.image_url }}" />
+    <mat-card-content>
+      {{ card.description }}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="gotoArticle(card)">Learn more</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
-  
-  

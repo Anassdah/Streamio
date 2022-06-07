@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SiteStatsComponent } from './admin-dashboard/dashboard-components/site-stats/site-stats.component';
 import { UserStatsComponent } from './admin-dashboard/dashboard-components/user-stats/user-stats.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,6 @@ import { UserStatsComponent } from './admin-dashboard/dashboard-components/user-
     ReactiveFormsModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule,
     MatIconModule,
     MatButtonModule,
     LayoutModule

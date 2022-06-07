@@ -36,7 +36,6 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component';
 import {MatCardModule} from '@angular/material/card';
-import { CarouselModule } from './components/carousel/carousel.module';
 import { GamePageComponent } from './components/game-page/game-page.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth.interceptor';
@@ -55,7 +54,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 import { NgAmpModule } from 'ng-amp';
 import { StartStreamComponent } from './start-stream/start-stream.component';
-import { WatchComponent } from './watch/watch.component';
 import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
@@ -84,13 +82,11 @@ import {MatChipsModule} from '@angular/material/chips';
     RegisterFormComponent,
     AdminDashboardComponent,
     StartStreamComponent,
-    WatchComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
-    CarouselModule,
     NgAmpModule,
     //Material modules
     MatSidenavModule,

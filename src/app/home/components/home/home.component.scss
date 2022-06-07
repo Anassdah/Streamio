@@ -27,4 +27,21 @@ h2{
     flex: 1 0 25%;
     margin: 2px; 
 }
-
+#feed{
+    display: flex;
+    width: 100%;
+}
+#feedContainer{
+    display: flex;
+    flex-direction:column;
+    width: 50%;
+    margin: auto;
+}
+#live_container{
+    width: 50%;
+}
+.element-card{
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+}

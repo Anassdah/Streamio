@@ -58,6 +58,7 @@ export class EventsComponent implements OnInit {
       if(res.data){
         event.isregistred=true;
         this.regis="Registred";
+        this.events_already_Registred.add(event);
       }
     })
   }

@@ -1,18 +1,43 @@
-<div id="feedContainer">
-    <mat-card class="element-card" *ngFor="let element of feed">
+<div id="feed">
+  <div id="feedContainer" >
+      <h1>Feed</h1>
+      <div *ngFor="let element of feed">
+        <div>
+            <mat-card class="element-card" *ngIf="element.type == 'review'">
+                <mat-card-header>
+                  <mat-card-title>{{ getUsername(element.user_id) }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="user-rating">
+                    <mat-icon class="star" *ngFor="let i of [1, 2, 3, 4, 5]">
+                      {{ ratingStar(i, element.rating) }}
+                    </mat-icon>
+                    ({{ element.rating }})
+                  </div>
+                  <br />
+                  {{ element.desc }}
+                </mat-card-content>
+              </mat-card>
+          </div>
+          <div>
+            <mat-card class="element-card" *ngIf="element.type == 'article'">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{ element.title }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{ element.image_url }}" />
+                <mat-card-content>
+                  {{ element.description }}
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button (click)="gotoArticle(element)">Learn more</button>
+                </mat-card-actions>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+  <div id="live_container">
+    <h1>Live now</h1>
 
-        <mat-card-header *ngIf="element.type == 'review'">
-            <mat-card-title>{{getUsername(element.user_id)}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content *ngIf="element.type == 'review'">
-            <div class="user-rating">
-                <mat-icon class="star" *ngFor="let i of [1,2,3,4,5]">
-                    {{ratingStar(i,element.rating)}}
-                </mat-icon> ({{element.rating}})
-            </div>
-            <br />
-            {{element.desc}}
-        </mat-card-content>
-
-    </mat-card>
+  </div>
 </div>
