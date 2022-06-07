@@ -1,7 +1,29 @@
-<ng-amp
+<div class="page">
+  <ng-amp class="stream"
   src={{src}}
   [controls]="true"
   [autoplay]="true"
   [fluid]="false"
   >
 </ng-amp>
+  <div class="container">
+    <h1>Chat for stream</h1>
+    <div class="chatbox">
+      <div class="messages_list">
+        <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
+          <div class="user-message">
+            <div class="message-box">
+              <p class="name">{{ msg.userName }}</p>
+              <br/>
+              <p class="message">{{ msg.message }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="send-message">
+      <input type="text" [(ngModel)]="message">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
