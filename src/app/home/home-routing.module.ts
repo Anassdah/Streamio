@@ -50,6 +50,10 @@ const routes: Routes = [
         component:WrapperComponent,
         children:[
             {
+                path:'watch/:src',
+                component:WatchComponent
+            },
+            {
                 path:'watch',
                 component:WatchComponent
             },

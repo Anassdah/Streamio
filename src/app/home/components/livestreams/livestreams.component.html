@@ -1,1 +1,3 @@
-<p>livestreams works!</p>
+<div *ngFor="let stream of streams" >
+    <a (click)="goToStream(stream.endpoint)" >{{stream.title}}</a>
+</div>
