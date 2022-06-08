@@ -98,4 +98,11 @@ export class EventsComponent implements OnInit {
         })
       })
     }
+    cancel_Registration(event_id:any){
+      this.EventService
+      .cancel_Registration(event_id)
+      .subscribe((res: any) => {
+
+      })
+    }
 }

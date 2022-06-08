@@ -29,23 +29,21 @@
                 >
                   {{ regis }}
                 </button>
-                
               </mat-card-actions>
               <span
-                  style="
-                    font-weight: bold;
-                    font-size: 12px;
-                    margin: 5px;
-                    padding: 5px;
-                  "
-                  >{{ event.nbr_registers }} are interested</span
-                >
+                style="
+                  font-weight: bold;
+                  font-size: 12px;
+                  margin: 5px;
+                  padding: 5px;
+                "
+                >{{ event.nbr_registers }} are interested</span
+              >
             </div>
           </mat-card>
         </div>
       </div>
     </div>
-    
   </mat-tab>
   <mat-tab label="Already registed" *ngIf="auth.isLoggedIn()">
     <div *ngFor="let event of events_already_Registred">
@@ -54,8 +52,16 @@
           <img mat-card-image src="{{ event.poster_url }}" />
           <div>
             <mat-card-actions>
-              <span>{{ event.nbr_registers }} are interested</span>
+              <button
+                [style.background-color]="registred ? 'green' : 'red'"
+                class="button-29"
+                role="button"
+                (click)="cancel_Registration(event.event_id)"
+              >
+               Cancel Registration 
+              </button>
             </mat-card-actions>
+            <span>{{ event.nbr_registers }} are interested</span>
           </div>
         </mat-card>
       </div>
