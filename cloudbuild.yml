@@ -2,9 +2,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install','--legacy-peer-deps']
-
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install','-g','npm@latest']
   
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run','build','--prod']
