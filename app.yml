@@ -4,10 +4,10 @@ threadsafe: yes
 
 handlers:
   - url: /
-    static_files: dist/streamio/index.html
-    upload: dist/streamio/index.js
+    static_files: dist/testproject/index.html
+    upload: dist/testproject/index.js
   - url: /
-    static_dir: dist/streamio
+    static_dir: dist/testproject
 
 skip_files:
   - node_mosules/
