@@ -1,0 +1,14 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /
+    static_files: dist/streamio/index.html
+    upload: dist/streamio/index.js
+  - url: /
+    static_dir: dist/streamio
+
+skip_files:
+  - node_mosules/
+  - src/
