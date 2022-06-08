@@ -1,11 +1,11 @@
 
 steps:
-  - name: 'gcr.io/cloud-builders/npm:node-16.13.0'
+  - name: 'gcr.io/cloud-builders/npm:node-14.10.1'
     args: ['install','--legacy-peer-deps']
   
-  - name: 'gcr.io/cloud-builders/npm:node-16.13.0'
+  - name: 'gcr.io/cloud-builders/npm:node-14.10.1'
     args: ['run','build','--prod']
   
-  - name: 'gcr.io/cloud-builders/gcloud:node-16.13.0'
+  - name: 'gcr.io/cloud-builders/gcloud:node-14.10.1'
     args: ['app','deploy','--version=prod']
 
