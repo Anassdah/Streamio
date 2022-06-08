@@ -1,14 +1,11 @@
 
 steps:
-  - name: 'install dep'
-    entrypoint: npm
+  - name: 'gcr.io/cloud-builders/npm:node-16.13.0'
     args: ['install','--legacy-peer-deps']
-
   
-  - name: 'build'
-    entrypoint: npm
+  - name: 'gcr.io/cloud-builders/npm:node-16.13.0'
     args: ['run','build','--prod']
   
-  - name: 'gcr.io/cloud-builders/gcloud'
+  - name: 'gcr.io/cloud-builders/gcloud:node-16.13.0'
     args: ['app','deploy','--version=prod']
 
