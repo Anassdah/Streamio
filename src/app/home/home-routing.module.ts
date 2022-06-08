@@ -20,6 +20,7 @@ import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.comp
 import { SiteStatsComponent } from '../admin-dashboard/dashboard-components/site-stats/site-stats.component';
 import { UserStatsComponent } from '../admin-dashboard/dashboard-components/user-stats/user-stats.component';
 import { StartStreamComponent } from './start-stream/start-stream.component';
+import { WatchComponent } from './watch/watch.component';
 
 const routes: Routes = [
     {

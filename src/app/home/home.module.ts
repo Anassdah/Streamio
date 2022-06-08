@@ -58,9 +58,11 @@ import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { WatchComponent } from './watch/watch.component'; 
 
 @NgModule({
   declarations: [
+    WatchComponent ,
     WrapperComponent,
     HomeComponent,
     ArticlesComponent,
