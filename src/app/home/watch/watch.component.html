@@ -4,6 +4,9 @@
   </ng-amp>
   <div class="container" *ngIf="is_live">
     <h1>Chat for stream</h1>
+    <div class="logo"> 
+         <img class='logo' src="../../../assets/images/streamiochat.png" alt="">
+    </div>
     <div class="chatbox">
       <div class="messages_list">
         <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
