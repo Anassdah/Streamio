@@ -7,7 +7,9 @@
   >
 </ng-amp>
   <div class="container">
-    <h1>Chat for stream</h1>
+    <div class="logo"> 
+         <img class='logo' src="../../../assets/images/streamiochat.png" alt="">
+    </div>
     <div class="chatbox">
       <div class="messages_list">
         <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
@@ -22,8 +24,8 @@
       </div>
     </div>
     <div class="send-message">
-      <input type="text" [(ngModel)]="message">
-      <button (click)="sendMessage()">Send</button>
+      <input class="input" type="text" [(ngModel)]="message">
+      <button class="button" (click)="sendMessage()">Send</button>
     </div>
   </div>
 </div>

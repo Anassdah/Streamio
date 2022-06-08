@@ -1,6 +1,8 @@
 .page{
     display: flex;
-    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    width: 110%;
+   background-color: rgb(255, 255, 255);
 
 }
 .stream{
@@ -31,6 +33,11 @@
     border: 1px solid #8182c1;
     padding: 5px;
     border-radius: 5px;
+    margin-top: 4px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
   }
 
 .container {
@@ -44,13 +51,15 @@
     margin: 0.5em auto;
     color: rgb(20, 23, 108);
     text-align: center;
+    font-family: fantasy;
   }
 }
 .chatbox {
-  background: rgba(7, 54, 148, 0.727);
+  background: rgba(125, 124, 197, 0.727);
   width: 80%;
   height: 75%;
-  border-radius: 0.2em;
+  margin-right: 20px;
+  border-radius: 0.3em;
   position: relative;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
   .messages_list {
@@ -84,33 +93,6 @@
       margin: 0 2.8em;
     }
   }
-  &__user-list {
-    background: rgba(255, 255, 255, 0.1);
-    width: 25%;
-    height: 100%;
-    float: right;
-    border-top-right-radius: 0.2em;
-    border-bottom-right-radius: 0.2em;
-    h1 {
-      background: rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.9em;
-      padding: 1em;
-      margin: 0;
-      font-weight: 300;
-      text-align: center;
-    }
-  }
-  &__user {
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 100%;
-    margin: 1em 0.7em;
-    &--active {
-      @extend .chatbox__user;
-      background: rgba(23, 190, 187, 0.8);
-    }
-  }
   p {
     float: left;
     text-align: left;
@@ -124,7 +106,7 @@
     background: #222;
     input {
       background: rgba(255, 255, 255, 0.03);
-      position: absolute;
+      position: relative;
       bottom: 0;
       left: 0;
       border: none;
