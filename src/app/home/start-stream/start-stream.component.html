@@ -1,1 +1,16 @@
-<p>start-stream works!</p>
+<form *ngIf="!loading">
+    <mat-form-field appearance="outline">
+        <mat-label>title</mat-label>
+        <input matInput placeholder="Email" [formControl]="title">
+    </mat-form-field>
+    <br />
+    <div id="button-container">
+        <button mat-raised-button color="primary" (click)="this.startStream()">Start stream</button>
+    </div>
+
+</form>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<span>{{endpoints.ingestUrl}}</span>
+<a *ngIf="link!='' && !loading" [routerLink]="link">Go to live stream</a>

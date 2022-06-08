@@ -57,6 +57,7 @@ import { StartStreamComponent } from './start-stream/start-stream.component';
 import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatNativeDateModule,
     MatChipsModule,
     MatGridListModule,
-    NgxMaterialRatingModule
+    NgxMaterialRatingModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,

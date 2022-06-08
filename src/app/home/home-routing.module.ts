@@ -48,7 +48,14 @@ const routes: Routes = [
         path:'',
         component:WrapperComponent,
         children:[
-           
+            {
+                path:'watch/:src',
+                component:WatchComponent
+            },
+            {
+                path:'watch',
+                component:WatchComponent
+            },
             {
                 path:'stream',
                 component:StartStreamComponent
