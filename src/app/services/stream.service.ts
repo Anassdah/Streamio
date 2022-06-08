@@ -18,12 +18,17 @@ export class StreamService {
     return streamEndpoints;
   }
   
-  async stopStream() {
-    this.http.delete(this.streamingHost);
+  stopStream() {
+    return this.http.delete(this.streamingHost);
   }
 
   async getStreams() {
     let streams = await this.http.get(this.streamingHost).toPromise();
+    return streams;
+  }
+
+  async getStreamByID(streamId: string) {
+    let streams = await this.http.get<any>(this.streamingHost + "/streams/" + streamId).toPromise();
     return streams;
   }
 
