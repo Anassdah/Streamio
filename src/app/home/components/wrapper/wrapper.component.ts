@@ -12,10 +12,8 @@ export class WrapperComponent implements OnDestroy {
   linkstatue:string=window.location.pathname.split("/")[1];
   messageReceived: boolean=true;
   subscriptionName: Subscription; //important to create a subscription
-  samelink(link:string):boolean{
-    if (link==this.linkstatue){return true}
-    return false 
-  }
+
+ 
   constructor(private darkmode:darkmodeService){
      // subscribe to sender component messages
      this.subscriptionName= this.darkmode.getUpdate().subscribe
@@ -26,5 +24,11 @@ export class WrapperComponent implements OnDestroy {
   ngOnDestroy() { // It's a good practice to unsubscribe to ensure no memory leaks
     //this.subscriptionName.unsubscribe();
 }
+
+samelink(link:string):boolean{
+  if (link==this.linkstatue){return true}
+  return false 
+}
+
 
 }
