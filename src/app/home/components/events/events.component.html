@@ -14,10 +14,9 @@
         </mat-chip-list>
       </mat-form-field>
     </div>
-    <div id="event">
-      <div *ngFor="let event of events">
-        <div *ngIf="!event.isregistred">
-          <mat-card class="event-card">
+    <div class="event">
+      <div  *ngFor="let event of event" class="event-card" >
+          <mat-card>
             <img mat-card-image src="{{ event.poster_url }}" />
             <div>
               <mat-card-actions *ngIf="auth.isLoggedIn()">
@@ -42,29 +41,34 @@
             </div>
           </mat-card>
         </div>
-      </div>
     </div>
   </mat-tab>
-  <mat-tab label="Already registed" *ngIf="auth.isLoggedIn()">
-    <div *ngFor="let event of events_already_Registred">
-      <div *ngIf="event.isregistred">
-        <mat-card class="event-card">
-          <img mat-card-image src="{{ event.poster_url }}" />
-          <div>
-            <mat-card-actions>
-              <button
-                [style.background-color]="registred ? 'green' : 'red'"
-                class="button-29"
-                role="button"
-                (click)="cancel_Registration(event.event_id)"
-              >
-               Cancel Registration 
-              </button>
-            </mat-card-actions>
-            <span>{{ event.nbr_registers }} are interested</span>
-          </div>
-        </mat-card>
+  <mat-tab label="Already registed" *ngIf="auth.isLoggedIn()" >
+    <div class="event">
+      <div *ngFor="let event of events_already_Registred"  class="event-card"  >
+        <div *ngIf="event.isregistred" >
+          <mat-card >
+            <img mat-card-image src="{{ event.poster_url }}" />
+            <div>
+              <mat-card-actions>
+                <button
+                  [style.background-color]="registred ? 'green' : 'red'"
+                  class="button-29"
+                  role="button"
+                  (click)="cancel_Registration(event)"
+                >
+                 Cancel Registration 
+                </button>
+              </mat-card-actions>
+              <span>{{ event.nbr_registers }} are interested</span>
+            </div>
+          </mat-card>
+        </div>
       </div>
+
+
     </div>
+     
+    
   </mat-tab>
 </mat-tab-group>

@@ -29,6 +29,7 @@ export class EventsComponent implements OnInit {
 
   events:Event[]=[];
   events_already_Registred:Set<Event>=new Set();
+  event:Event[]=[];
 
   user_id:string|null=this.auth.getUser_id();
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class EventsComponent implements OnInit {
       this.events = events;
       events.forEach((event :any)=>{
         if(event.isregistred) this.events_already_Registred.add(event);
+        else this.event.push(event);
       })
     });
   }
@@ -85,8 +87,8 @@ export class EventsComponent implements OnInit {
     this.EventService
       .getEvents_withTags(this.formControl.value.slice(1))
       .subscribe((events: any) => {
-        this.events =events;
-        this.events.map((event:any)=>{
+        this.event =events;
+        this.event.map((event:any)=>{
           var isRegistred=false;
           this.events_already_Registred.forEach(e=>{
             if(e.event_id==event.event_id){
@@ -98,10 +100,13 @@ export class EventsComponent implements OnInit {
         })
       })
     }
-    cancel_Registration(event_id:any){
+    cancel_Registration(event:any){
+      let event_id=event.event_id;
       this.EventService
       .cancel_Registration(event_id)
       .subscribe((res: any) => {
+        this.events_already_Registred.delete(event);
+        this.event.push(event);
 
       })
     }
