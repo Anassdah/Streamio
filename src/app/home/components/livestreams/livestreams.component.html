@@ -3,11 +3,8 @@
         <h1>Livestreams</h1>
         <div *ngFor="let stream of streams">
             <mat-card *ngIf="stream.is_live" class="stream-card" (click)="goToStream(stream._id)">
-                <mat-card-header style="color:red">
-                    Live
-                </mat-card-header>
                 <span>
-                    <b>{{stream.username}}</b> is streaming "{{stream.title}}"
+                    <b>{{stream.username}}</b> is streaming "{{stream.title}}" <span style="color:red">  Live  </span>
                 </span>
             </mat-card>
         </div>

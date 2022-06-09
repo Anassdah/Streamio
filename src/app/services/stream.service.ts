@@ -32,4 +32,9 @@ export class StreamService {
     return streams;
   }
 
+  async getLiveStreams() {
+    let liveStreams = await this.http.get(this.streamingHost + "/lives").toPromise();
+    return liveStreams;
+  }
+
 }

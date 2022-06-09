@@ -22,6 +22,7 @@ export class WatchComponent implements OnInit {
   title = "";
   user_id="";
   is_live:boolean = false;
+  loading = false;
 
   constructor(public auth: AuthService, private router: Router, private route: ActivatedRoute, private streamService: StreamService) {
     this.userName = auth.getUsername() || 'guest';
@@ -83,7 +84,7 @@ export class WatchComponent implements OnInit {
   }
 
   async stopStream() {
-    await this.streamService.stopStream().toPromise();
+    this.streamService.stopStream().toPromise();
     this.router.navigateByUrl("/livestreams");
   }
 

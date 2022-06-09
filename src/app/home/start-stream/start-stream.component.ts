@@ -36,5 +36,8 @@ export class StartStreamComponent implements OnInit {
       this.link = "/watch?streamId=" + this.endpoints.stream._id;
     }
   }
+  goToStream(id: string) {
+    this.router.navigateByUrl('/watch?streamId=' + id);
+  }
 
 }
