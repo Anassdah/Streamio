@@ -42,6 +42,11 @@ export class DashboardService {
     return users;
   }
 
+  async getAllUsersPublic() {
+    let users = await this.http.get<Array<user>>(this.userDBHost + "/users").toPromise();
+    return users;
+  }
+
   getGameCount() {
     return this.http.get<string>(this.gameDBHost + "/count/games");
   }
