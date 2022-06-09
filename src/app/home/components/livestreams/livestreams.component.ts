@@ -17,10 +17,11 @@ export class LivestreamsComponent implements OnInit {
   async ngOnInit() {
     this.streams = await this.streamService.getStreams();
     this.streams = await Promise.all(this.streams.map(async (stream: any) => {
-      stream.usename = await this.auth.getUsernameFromId(stream.user_id);
+      let usernameObject = await this.auth.getUsernameFromId(stream.user_id).toPromise() || {username: undefined};
+      stream.username = usernameObject.username;
       return stream;
     }));
-    this.streams.reverse();
+    this.streams = this.streams.reverse();
   }
 
   goToStream(id: string) {

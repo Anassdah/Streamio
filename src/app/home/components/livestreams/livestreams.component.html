@@ -2,23 +2,22 @@
     <div class="half-screen">
         <h1>Livestreams</h1>
         <div *ngFor="let stream of streams">
-            <mat-card *ngIf="stream.is_live" class="stream-card">
-                <mat-card-header>
-                    {{stream.username}}
+            <mat-card *ngIf="stream.is_live" class="stream-card" (click)="goToStream(stream._id)">
+                <mat-card-header style="color:red">
+                    Live
                 </mat-card-header>
-                <span (click)="goToStream(stream._id)">
-                    {{stream.username}} is streaming "{{stream.title}}"
+                <span>
+                    <b>{{stream.username}}</b> is streaming "{{stream.title}}"
                 </span>
-                <mat-card-subtitle style="color:red">Live</mat-card-subtitle>
             </mat-card>
         </div>
     </div>
     <div class="half-screen">
         <h1>VODs</h1>
         <div *ngFor="let stream of streams">
-            <mat-card *ngIf="!(stream.is_live)" class="stream-card">
-                <span (click)="goToStream(stream._id)">
-                    {{stream.username}} has streamed "{{stream.title}}"
+            <mat-card *ngIf="!(stream.is_live)" class="stream-card" (click)="goToStream(stream._id)">
+                <span>
+                    <b>{{stream.username}}</b> has streamed "{{stream.title}}"
                 </span>
             </mat-card>
         </div>
