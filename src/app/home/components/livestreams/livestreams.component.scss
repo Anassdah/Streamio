@@ -1,5 +1,6 @@
 #stream-container {
     display: flex;
+    padding:20px;
 }
 
 .half-screen {
@@ -9,4 +10,5 @@
 
 .stream-card {
     margin-bottom: 20px;
+    cursor: pointer;
 }
