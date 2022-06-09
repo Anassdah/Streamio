@@ -1,7 +1,8 @@
-<form *ngIf="!loading">
+<h1>Start a livestream</h1>
+<form *ngIf="!loading && !submitted">
     <mat-form-field appearance="outline">
-        <mat-label>title</mat-label>
-        <input matInput placeholder="Email" [formControl]="title">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [formControl]="title">
     </mat-form-field>
     <br />
     <div id="button-container">
@@ -10,7 +11,8 @@
 
 </form>
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-spinner *ngIf="loading"></mat-spinner><br/>
+<span *ngIf="loading">Starting stream...</span>
 
-<span>{{endpoints.ingestUrl}}</span>
-<a *ngIf="link!='' && !loading" [routerLink]="link">Go to live stream</a>
+<span *ngIf="!loading && submitted">Connect your streaming software with this URL: {{endpoints.ingestUrl}}</span><br/>
+<button mat-raised-button color="primary" *ngIf="link!='' && !loading" [routerLink]="link">Go to live stream</button>

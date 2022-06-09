@@ -1,20 +1,19 @@
+<h1>{{title}}</h1>
 <div class="page">
-  <ng-amp class="stream"
-  src={{src}}
-  [controls]="true"
-  [autoplay]="true"
-  [fluid]="false"
-  >
-</ng-amp>
-  <div class="container">
+  <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
+  </ng-amp>
+  <div class="container" *ngIf="is_live">
     <h1>Chat for stream</h1>
+    <div class="logo"> 
+         <img class='logo' src="../../../assets/images/streamiochat.png" alt="">
+    </div>
     <div class="chatbox">
       <div class="messages_list">
         <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
           <div class="user-message">
             <div class="message-box">
               <p class="name">{{ msg.userName }}</p>
-              <br/>
+              <br />
               <p class="message">{{ msg.message }}</p>
             </div>
           </div>
@@ -22,8 +21,12 @@
       </div>
     </div>
     <div class="send-message">
-      <input  class="input" type="text" [(ngModel)]="message">
+      <input class="input" type="text" [(ngModel)]="message">
       <button class="button" (click)="sendMessage()">Send</button>
     </div>
   </div>
+</div>
+
+<div>
+  <button mat-raised-button color="warn" (click)="stopStream()" *ngIf="user_id == auth.getUser_id() && is_live">Stop stream</button>
 </div>
