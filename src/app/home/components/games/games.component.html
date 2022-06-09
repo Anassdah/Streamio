@@ -1,16 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="start stretch">
-    <div *ngFor="let game of games" >
-      <mat-card class="overflow-hidden" (click)="goToGame(game._id)">
+<div id="container">
+    <div *ngFor="let game of games"  class="cell">
+      <mat-card  (click)="goToGame(game._id)">
         <div>
-          <img src="{{ game.image }}" class="w-100" alt="">
+          <img  style=" height: 100%;
+          width: 100%;"src="{{ game.image }}"  alt="">
         </div>
-        <mat-card-content>
-          <div>
-            <p class="fs-18 lh-lg fw-medium">
-                {{game.name}}
-            </p>
-          </div>
-        </mat-card-content>
+        <mat-card-actions>
+          {{game.name}}
+        </mat-card-actions>
       </mat-card>
       
     </div>

@@ -1,4 +1,4 @@
-<div *ngIf="game">
+<div id="container" *ngIf="game">
     <div id="game-banner">
         <img id="game-poster" src="{{ game.image }}" class="w-100" alt="">
         <div id="game-info">
@@ -16,7 +16,7 @@
     </div>
     <mat-tab-group>
         <mat-tab label="Reviews">
-            <mat-card *ngIf="auth.isLoggedIn()" style="margin-top: 10px;">
+            <mat-card *ngIf="auth.isLoggedIn()" style="margin-top: 10px;width:100%;">
                 <h1>Submit review:</h1>
                 <form>
                     <div class="rating">
@@ -28,19 +28,20 @@
                                 [max]="ratings.max">
                             </ngx-material-rating>
                         </div>
-                    </div>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" style="width:80%" >
                         <mat-label>Description</mat-label>
                         <mat-icon matSuffix>edit</mat-icon>
-                        <input matInput placeholder="description" [formControl]="desc">
+                        <input style="width:60%;height:50px" matInput placeholder="description" [formControl]="desc">
                     </mat-form-field>
                     <div id="button-container">
                         <button mat-raised-button color="primary" (click)="submitReview()">Submit</button>
                     </div>
+                </div>
+
                 </form>
             </mat-card>
             <h1 style="margin-top:20px">User reviews</h1>
-            <div class="review-card" *ngFor="let r of game.reviews.reverse()">
+            <div class="review-card" *ngFor="let r of gameReviews">
                 <mat-card>
                     <div class="user-name"><b>By : <span class="user-link" [routerLink]="['/profile/'+r.user_id]">{{r.username}}</span></b></div>
                     <br />

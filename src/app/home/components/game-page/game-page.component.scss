@@ -1,3 +1,9 @@
+#container{
+    padding: 20px;
+    margin: 20px;
+    box-shadow: #272822 1px 1px 10px 1px;
+}
+
 #game-banner {
     display:flex;
     margin-bottom: 20px;
@@ -15,9 +21,13 @@
     display: flex;
     align-items: center;
 }
+#game-poster{
+    height: 350px;
+}
 
 .review-card {
     margin-top: 10px;
+    border: 1px solid antiquewhite;
 }
 
 .star {
@@ -36,4 +46,9 @@
 .user-link {
     text-decoration: none;
     cursor: pointer;
+}
+
+.rating{
+    width: 100%;
+
 }

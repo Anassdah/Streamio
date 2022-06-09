@@ -39,18 +39,22 @@ export class GamePageComponent implements OnInit {
     private router: Router,
     public auth: AuthService) {}
 
+    gameReviews:any[]=[];
+
   ngOnInit(): void {
     this.rating.setValue(1);
     this.desc.setValue("");
 
     this.id = this.route.snapshot.params['id'];
     this.getGame(this.id);
+    
   }
 
   private getGame(gameId: string) {
     this.rest.getGameById(gameId).subscribe(
       data => {
         this.game = data;
+        this.gameReviews=this.game.reviews;
       },
       err => {
         console.log(err);
@@ -63,8 +67,10 @@ export class GamePageComponent implements OnInit {
       "rating": this.rating.value,
       "desc": this.desc.value
     }
-    this.rest.postReview(this.id, body).subscribe(err => console.log(err));
-    this.ngOnInit();
+    this.rest.postReview(this.id, body).subscribe(()=>{
+      this.gameReviews.unshift(body);
+
+    });
   }
 
   ratingStar(value:number,rating:number) {
