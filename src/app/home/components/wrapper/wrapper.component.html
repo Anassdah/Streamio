@@ -2,8 +2,8 @@
     <mat-sidenav-container autosize>
         <mat-sidenav #sidenav mode="side" opened="true" [ngClass]="{'expand':isExpanded}" >
             <mat-nav-list>
-                <mat-list-item [routerLink]="'home'">
-                    <span *ngIf="isExpanded" class="sidenav-title">Streamio</span>
+                <mat-list-item >
+                    <span *ngIf="isExpanded" [routerLink]="'home'" class="sidenav-title">Streamio</span>
                     <mat-icon mat-list-icon class="testlogo" [ngClass]="{'change':isExpanded}">stream</mat-icon>
                     <mat-icon mat-list-icon class="expand-button" (click)="isExpanded=!isExpanded" [ngClass]="{'rotated':isExpanded}">chevron_right</mat-icon>
                 </mat-list-item >

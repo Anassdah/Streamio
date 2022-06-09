@@ -26,6 +26,6 @@
 
     <span *ngIf="!loading && submitted">Connect your streaming software with this URL:
         {{endpoints.ingestUrl}}</span><br />
-    <button mat-raised-button color="primary" *ngIf="link!='' && !loading" [routerLink]="link">Go to live
+    <button mat-raised-button color="primary" *ngIf="link!='' && !loading" (click)="goToStream(endpoints.stream._id)">Go to live
         stream</button>
 </div>

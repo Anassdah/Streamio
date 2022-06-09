@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { AuthService } from 'src/app/services/auth.service';
 import { FeedService } from 'src/app/services/feed.service';
+import { StreamService } from 'src/app/services/stream.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,10 @@ import { FeedService } from 'src/app/services/feed.service';
 export class HomeComponent implements OnInit {
 
   public feed: any[] = [];
+  public liveStreams: any = [];
 
-  constructor(private feedService: FeedService, public auth: AuthService,private router: Router) { }
+  constructor(private feedService: FeedService, public auth: AuthService,private router: Router, private streamService: StreamService
+    ) { }
   gotoArticle(article: Article) {
     this.router.navigate(
       ['/article/',article._id]
@@ -21,6 +24,16 @@ export class HomeComponent implements OnInit {
   } 
 
   async ngOnInit() {
+    this.liveStreams = await this.streamService.getLiveStreams();
+    console.log(this.liveStreams);
+    this.liveStreams = await Promise.all(this.liveStreams.map(async (stream: any) => {
+      let usernameObject = await this.auth.getUsernameFromId(stream.user_id).toPromise() || {username: undefined};
+      stream.username = usernameObject.username;
+      return stream;
+    }));
+    this.liveStreams = this.liveStreams.reverse();
+
+    
     let rawFeed = await this.feedService.getFeed();
     console.log(rawFeed);
     if(rawFeed){
@@ -49,6 +62,8 @@ export class HomeComponent implements OnInit {
       
       console.log(this.feed);
     }
+
+
   }
 
   ratingStar(value:number,rating:number) {
@@ -64,5 +79,9 @@ export class HomeComponent implements OnInit {
   async getUsername(user_id:string){
     let username = await this.auth.getUsernameFromId(user_id).toPromise();
     return username?.username;
+  }
+
+  goToStream(id: string) {
+    this.router.navigateByUrl('/watch?streamId=' + id);
   }
 }
