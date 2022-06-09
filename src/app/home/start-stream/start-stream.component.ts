@@ -13,8 +13,9 @@ export class StartStreamComponent implements OnInit {
 
   title = new FormControl('');
   loading = false;
-  endpoints = {ingestUrl: "", endpoint: ""};
+  endpoints = {ingestUrl: "", endpoint: "", stream: {_id:""}};
   link = "";
+  submitted = false;
 
   constructor(private streamService: StreamService, private auth: AuthService, private router: Router) { }
 
@@ -24,10 +25,11 @@ export class StartStreamComponent implements OnInit {
 
   async startStream() {
     if (this.title.value != '') {
+      this.submitted = true;
       this.loading = true;
-      this.endpoints = await this.streamService.startStream(this.title.value) || { ingestUrl: "", endpoint: "" };
+      this.endpoints = await this.streamService.startStream(this.title.value) || { ingestUrl: "", endpoint: "", stream: {} };
       this.loading = false;
-      this.link = "/watch/" + this.endpoints.endpoint;
+      this.link = "/watch?streamId=" + this.endpoints.stream._id;
     }
   }
 
