@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamersComponent implements OnInit {
 
+  sub:string='subscribe';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  subscribe(){
+    if(this.sub=='subscribe'){
+      this.sub='unsubscribe'
+    }
+    else{
+      this.sub="subscribe"
+    }
   }
 
 }
