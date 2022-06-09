@@ -1,12 +1,12 @@
 <mat-toolbar>
-  <mat-toolbar-row >
+  <mat-toolbar-row>
     <div style="width:max-content">
       <mat-icon>bedtime</mat-icon>
-    <mat-slide-toggle [formControl]="toggleControl">
-    </mat-slide-toggle>
-    <mat-icon>brightness_5</mat-icon>
+      <mat-slide-toggle [formControl]="toggleControl">
+      </mat-slide-toggle>
+      <mat-icon>brightness_5</mat-icon>
     </div>
-    
+
     <div>
       <div *ngIf="auth.isLoggedIn()">
         <button mat-button [matMenuTriggerFor]="menu">Add</button>
@@ -14,12 +14,7 @@
           <a mat-menu-item [routerLink]="'add_article'">Add article </a>
           <a mat-menu-item [routerLink]="'stream'">Go live </a>
           <a mat-menu-item [routerLink]="'images'">Upload images</a>
-          <a
-            mat-menu-item
-            [routerLink]="'addEvent'"
-            *ngIf="auth.getUserRole() == 'admin'"
-            >Add Event</a
-          >
+          <a mat-menu-item [routerLink]="'addEvent'" *ngIf="auth.getUserRole() == 'admin'">Add Event</a>
         </mat-menu>
       </div>
     </div>
@@ -35,9 +30,7 @@
             <!--<input matInput id="search">-->
           </div>
         </mat-list-item>
-        <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()"
-          >Se connecter</mat-list-item
-        >
+        <mat-list-item *ngIf="auth.isLoggedOut()" (click)="goToLogin()">Se connecter</mat-list-item>
         <mat-list-item *ngIf="auth.isLoggedIn()">
           <button mat-button [matMenuTriggerFor]="menu">
             {{ auth.getUsername() }}
@@ -45,6 +38,7 @@
           <mat-menu #menu="matMenu">
             <a mat-menu-item (click)="gotoProfile()">Profile</a>
             <a mat-menu-item (click)="auth.logout()">logout</a>
+            <a mat-menu-item [routerLink]="'/dashboard'" *ngIf="auth.getUserRole() == 'admin'">Dashboard</a>
           </mat-menu>
         </mat-list-item>
       </mat-nav-list>
