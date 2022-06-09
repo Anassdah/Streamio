@@ -1,21 +1,11 @@
 <div id="watch-container">
   <h1>{{title}}</h1>
   <div class="page">
-<<<<<<< HEAD
     <div class="video_container">
       <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
       </ng-amp>
     </div>
     <div class="container" >
-=======
-    <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
-    </ng-amp>
-    <div class="container" *ngIf="is_live">
-      <h1>Chat for stream</h1>
-      <div class="logo">
-        <img class='logo' src="../../../assets/images/streamiochat.png" alt="">
-      </div>
->>>>>>> d7730977179642af3e18f73ade8c6f3c19b86405
       <div class="chatbox">
         <div class="messages_list">
           <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
