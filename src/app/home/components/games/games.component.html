@@ -2,8 +2,7 @@
     <div *ngFor="let game of games"  class="cell">
       <mat-card  (click)="goToGame(game._id)">
         <div>
-          <img  style=" 
-          width: 100%;"src="{{ game.image }}"  alt="">
+          <img  style=" width: 100%;"src="{{ game.image }}"  alt="">
         </div>
         <mat-card-actions>
           {{game.name}}
