@@ -12,7 +12,9 @@ mat-sidenav-container {
         margin-right: 20px;
     */
     .content{
-        width: 100%;
+        width: 90%;
+        padding: 4%;
+        padding-top: 0;
         //margin-top: 4%;
         //padding-top: 3%;
         overflow:hidden;
@@ -64,7 +66,7 @@ mat-sidenav-container {
         }
         .sidenavbutton:hover{
             color: #9ea0d9;
-        }
+        } 
 
         .sidenavbutton.change{
             color: rgb(0, 119, 255);

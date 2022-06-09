@@ -1,6 +1,11 @@
+#container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
 .element-card{
-  width: 600px;
+  width: 30%;
   height: max-content;
-  margin: auto;
-  margin-top: 10px;
+  margin: 10px;
+  
 }
