@@ -1,18 +1,31 @@
-<h1>Start a livestream</h1>
-<form *ngIf="!loading && !submitted">
-    <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" [formControl]="title">
-    </mat-form-field>
-    <br />
-    <div id="button-container">
-        <button mat-raised-button color="primary" (click)="this.startStream()">Start stream</button>
-    </div>
+<div id="start-stream-container">
+    <h1>Start a livestream</h1>
+    <form *ngIf="!loading && !submitted">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" [formControl]="title">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill">
+            <mat-label>Select a game</mat-label>
+            <mat-select [(value)]="game">
+                <mat-option *ngFor="let game of games" [value]="game">
+                    {{game.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br />
+        <div id="button-container">
+            <button mat-raised-button color="primary" (click)="this.startStream()">Start stream</button>
+        </div>
 
-</form>
+    </form>
 
-<mat-spinner *ngIf="loading"></mat-spinner><br/>
-<span *ngIf="loading">Starting stream...</span>
+    <mat-spinner *ngIf="loading"></mat-spinner><br />
+    <span *ngIf="loading">Starting stream...</span>
 
-<span *ngIf="!loading && submitted">Connect your streaming software with this URL: {{endpoints.ingestUrl}}</span><br/>
-<button mat-raised-button color="primary" *ngIf="link!='' && !loading" [routerLink]="link">Go to live stream</button>
+    <span *ngIf="!loading && submitted">Connect your streaming software with this URL:
+        {{endpoints.ingestUrl}}</span><br />
+    <button mat-raised-button color="primary" *ngIf="link!='' && !loading" [routerLink]="link">Go to live
+        stream</button>
+</div>

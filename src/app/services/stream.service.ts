@@ -13,8 +13,8 @@ export class StreamService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  async startStream(title: string) {
-    let streamEndpoints = await this.http.post<any>(this.streamingHost, {title: title}).toPromise();
+  async startStream(title: string, game_id: string) {
+    let streamEndpoints = await this.http.post<any>(this.streamingHost, {title: title, game_id: game_id}).toPromise();
     return streamEndpoints;
   }
   

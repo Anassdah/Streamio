@@ -6,9 +6,10 @@
                 <mat-card-header>
                     {{stream.username}}
                 </mat-card-header>
-                <a (click)="goToStream(stream._id)">
-                    {{stream.title}}
-                </a>
+                <span (click)="goToStream(stream._id)">
+                    {{stream.username}} is streaming "{{stream.title}}"
+                </span>
+                <mat-card-subtitle style="color:red">Live</mat-card-subtitle>
             </mat-card>
         </div>
     </div>
@@ -16,9 +17,9 @@
         <h1>VODs</h1>
         <div *ngFor="let stream of streams">
             <mat-card *ngIf="!(stream.is_live)" class="stream-card">
-                <a (click)="goToStream(stream._id)">
+                <span (click)="goToStream(stream._id)">
                     {{stream.username}} has streamed "{{stream.title}}"
-                </a>
+                </span>
             </mat-card>
         </div>
     </div>

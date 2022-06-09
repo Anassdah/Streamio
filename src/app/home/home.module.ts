@@ -58,7 +58,9 @@ import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { WatchComponent } from './watch/watch.component'; 
+import { WatchComponent } from './watch/watch.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -114,7 +116,8 @@ import { WatchComponent } from './watch/watch.component';
     MatChipsModule,
     MatGridListModule,
     NgxMaterialRatingModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,
