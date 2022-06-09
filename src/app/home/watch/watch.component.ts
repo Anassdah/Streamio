@@ -14,7 +14,7 @@ export class WatchComponent implements OnInit {
   userName: string;
   message: string = '';
   messageList: { message: string, userName: string, mine: boolean }[] = [];
-  room: string = "";
+  room: string = "test";
   socket: any;
   src = "";
   streamId = "";
