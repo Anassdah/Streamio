@@ -7,9 +7,11 @@
     <mat-spinner *ngIf="loading"></mat-spinner><br/><span *ngIf="loading">Stopping stream...</span>
   </div>
   <div class="page">
-    <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
-    </ng-amp>
-    <div class="container" *ngIf="is_live">
+    <div class="video_container">
+      <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
+      </ng-amp>
+    </div>
+    <div class="container" >
       <div class="chatbox">
         <div class="messages_list">
           <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">

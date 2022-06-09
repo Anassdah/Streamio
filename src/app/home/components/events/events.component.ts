@@ -36,6 +36,10 @@ export class EventsComponent implements OnInit {
     this.getEvents();
   }
   getEvents():void{
+
+    this.events_already_Registred.clear();
+    this.event=[];
+    
     this.EventService.getEvents(this.user_id).subscribe((events) => {
       this.events = events;
       events.forEach((event :any)=>{
