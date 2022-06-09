@@ -30,7 +30,7 @@ export class WatchComponent implements OnInit {
     });
 
 
-    this.socket = io.io(`localhost:4004?userName=${this.userName}&room=${this.room}`);
+    this.socket = io.io(`localhost:4007?userName=${this.userName}&room=${this.room}`);
     this.joinRoom();
     this.socket.emit('set-user-name', this.userName,this.room);
     this.socket.on('output-messages',(data: any)=>{
