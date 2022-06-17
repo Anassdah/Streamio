@@ -21,14 +21,16 @@
             <div>
               <mat-card-actions *ngIf="auth.isLoggedIn()">
                 <button
-                  [style.background-color]="registred ? 'green' : 'red'"
+                  [style.background-color]="event.isregistred ? 'green' : 'red'"
                   class="button-29"
                   role="button"
                   (click)="openDialog(event)"
                 >
-                  {{ regis }}
+                  <div *ngIf="event.isregistred" > registred </div>
+                  <div *ngIf="!event.isregistred"> registre </div>
                 </button>
               </mat-card-actions>
+              <div> {{event.date}}</div>
               <span
                 style="
                   font-weight: bold;

@@ -14,6 +14,7 @@ export interface Event{
   event_title:string;
   isregistred:boolean;
   nbr_registers:string;
+  date : Date;
 }
 @Component({
   selector: 'app-events',
@@ -39,9 +40,10 @@ export class EventsComponent implements OnInit {
 
     this.events_already_Registred.clear();
     this.event=[];
-    
+
     this.EventService.getEvents(this.user_id).subscribe((events) => {
       this.events = events;
+      console.log(events);
       events.forEach((event :any)=>{
         if(event.isregistred) this.events_already_Registred.add(event);
         else this.event.push(event);
@@ -63,7 +65,6 @@ export class EventsComponent implements OnInit {
       // received data from dialog-component
       if(res.data){
         event.isregistred=true;
-        this.regis="Registred";
         this.events_already_Registred.add(event);
       }
     })
@@ -109,6 +110,7 @@ export class EventsComponent implements OnInit {
       this.EventService
       .cancel_Registration(event_id)
       .subscribe((res: any) => {
+        event.isregistred=false;
         this.events_already_Registred.delete(event);
         this.event.push(event);
 

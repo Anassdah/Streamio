@@ -1,37 +1,69 @@
-<div id="watch-container">
-  <h1>{{title}}</h1>
-  <div>
-    <button mat-raised-button color="warn" (click)="stopStream()" *ngIf="user_id == auth.getUser_id() && is_live && !loading">Stop
-      stream</button>
-    <mat-spinner *ngIf="loading"></mat-spinner><br/><span *ngIf="loading">Stopping stream...</span>
+<div id="watch_container">
+  <div id="video_container">
+    <div id="video">
+      <!--
+      <ng-amp
+        class="stream"
+        style="width: 300px; height: 600px"
+        src="{{ src }}"
+        [controls]="true"
+        [autoplay]="true"
+        [fluid]="false"
+      >
+      </ng-amp>
+      -->
+    </div>
+  <mat-divider></mat-divider>
+    <div id="video_infos">
+      <div>
+        <h1>{{ title }}</h1>
+      </div>
+      <div id="owner_infos">
+       <app-user-infos  [user_id]="user_id"></app-user-infos>
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="stopStream()"
+          *ngIf="user_id == auth.getUser_id() && is_live && !loading"
+        >
+          Stop stream
+        </button>
+        <mat-spinner *ngIf="loading"></mat-spinner><br /><span *ngIf="loading"
+          >Stopping stream...</span
+        >
+      </div>
+    </div>
   </div>
 
-  <div class="page">
-    <div class="video_container">
-      <ng-amp class="stream" src={{src}} [controls]="true" [autoplay]="true" [fluid]="false">
-      </ng-amp>
-    </div>
-    <div class="container" >
-      <div class="chatbox">
-        <div class="messages_list">
-          <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
-            <div class="user-message">
-              <div class="message-box">
-                <p class="name">{{ msg.userName }}</p>
-                <br />
-                <p class="message">{{ msg.message }}</p>
-              </div>
-            </div>
+  <div id="messages_container">
+    <div id="messages">
+      <div *ngFor="let item of messages" class="message" >
+          <div class="msg-info">
+            <div >
+              <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpg" style="width: 30px;height:30px;border-radius :50%;border :2px solid black;margin-right:10px;"/>
           </div>
-        </div>
-      </div>
-      <div class="send-message">
-        <input class="input" type="text" [(ngModel)]="message">
-        <button class="button" (click)="sendMessage()">Send</button>
-      </div>
-      <div class="logo">
-        <img class='logo' src="../../../assets/images/streamiochat.png" alt="">
+            <div class="msg-info-name" [ngStyle]="{'color':  item.id==auth.getUser_id() ? 'blue' : 'red' }">{{item.senderDisplayName}}</div>
+            <div class="msg-info-time">{{item.createdOn}}</div>
+          </div>
+          <div class="msg-text">{{item.content?.message}}</div>
+  
+          <div *ngIf="item.id == 'placeholder'" style="float:right">Sending...</div>
+
+        <mat-divider></mat-divider>
+
       </div>
     </div>
+     <mat-divider></mat-divider>
+    <div id="add_message" *ngIf="auth.isLoggedIn()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <textarea matInput placeholder="chat "  [formControl]="messageContent" ></textarea>
+        </mat-form-field>
+      <div>
+        <button mat-button color="primary"  style="padding:5px;margin-top: 10px;" (click)="send_message()"> Send</button>
+      </div>
+    </div>
+
   </div>
 </div>
