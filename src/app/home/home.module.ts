@@ -60,6 +60,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { WatchComponent } from './watch/watch.component';
 import {MatSelectModule} from '@angular/material/select';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import {MatSelectModule} from '@angular/material/select';
     RegisterFormComponent,
     AdminDashboardComponent,
     StartStreamComponent,
+    VideoPlayerComponent
   ],
   imports: [
     CommonModule,

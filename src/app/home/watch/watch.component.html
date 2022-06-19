@@ -1,15 +1,12 @@
 <div id="watch_container">
   <div id="video_container">
-    <div id="video">
-      <ng-amp
+    <div id="video" *ngIf="src != ''">
+      <app-video-player
         class="stream"
-        style="width: 300px; height: 600px"
         src="{{ src }}"
-        [controls]="true"
         [autoplay]="true"
-        [fluid]="false"
       >
-      </ng-amp>
+      </app-video-player>
     </div>
   <mat-divider></mat-divider>
     <div id="video_infos">

@@ -1,10 +1,11 @@
- import { Component, OnInit } from '@angular/core';
+ import { Component, Directive, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 import * as io from 'socket.io-client';
 import { StreamService } from 'src/app/services/stream.service';
 import { FormControl } from '@angular/forms';
+import { NgAmpComponent } from 'ng-amp';
 
 export interface Message {
   senderDisplayName:string | null;
@@ -15,19 +16,22 @@ export interface Message {
   id :string | null;
 }
 
+
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
-  styleUrls: ['./watch.component.scss']
+  styleUrls: ['./watch.component.scss'],
 })
 export class WatchComponent implements OnInit {
+
+
   public messageContent = new FormControl('');
 
   send_message(){
     if(this.messageContent.value){
       this.messages.unshift({
         senderDisplayName:this.auth.getUsername(),
-        createdOn:"10/06/20200",
+        createdOn:"10/06/2020",
         content:{
             message:this.messageContent.value
         },
@@ -40,7 +44,7 @@ export class WatchComponent implements OnInit {
 
 
 
-
+  width=200;
 
 
   userName: string;
@@ -67,13 +71,15 @@ export class WatchComponent implements OnInit {
     for(let i=0;i<20;i++){
       this.messages.push({
         senderDisplayName:"mohamed",
-        createdOn:"10/06/20200",
+        createdOn:"10/06/2020",
         content:{
             message:"hello world",
         },
         id :""+i,
       })
     }
+
+
 
     this.route.queryParams.subscribe(params => {
       this.streamId = params['streamId'];
@@ -87,6 +93,8 @@ export class WatchComponent implements OnInit {
     this.is_live = this.stream[0].is_live;
     console.log(this.stream);
     this.room = this.streamId;
+
+    
 
     if (this.stream.is_live) {
       this.socket = io.io(`localhost:4004?userName=${this.userName}&room=${this.room}`);
