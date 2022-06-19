@@ -6,7 +6,10 @@ import { Observable, tap } from 'rxjs';
 })
 export class ArticleServiceService {
 
-  private ArticleUrl = 'http://localhost:4000/article/article/'; // URL to web api
+  private url="http://34.117.1.114";
+  
+
+  private ArticleUrl = this.url+'/article/article/'; // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };

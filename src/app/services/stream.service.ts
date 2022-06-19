@@ -9,7 +9,9 @@ export class StreamService {
 
   isStreaming = true;
 
-  private streamingHost = "http://localhost:4000/stream";
+  private url="http://34.117.1.114";
+  
+  private streamingHost = this.url+"/stream";
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 

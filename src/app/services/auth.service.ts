@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private authHost = "http://localhost:4000";
+  private url="http://34.117.1.114";
+
+  private authHost = this.url;
 
   constructor(private http: HttpClient) { }
 

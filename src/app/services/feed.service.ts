@@ -8,7 +8,9 @@ import { UserInfoService } from './user-info.service';
 })
 export class FeedService {
 
-  private feedHost = "http://localhost:4000/feed";
+  private url="http://34.117.1.114";
+
+  private feedHost = this.url+"/feed";
 
   constructor(private http: HttpClient, private auth: AuthService, private userInfoService: UserInfoService) { }
 

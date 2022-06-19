@@ -9,7 +9,7 @@ export class ImagesService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'http://localhost:4000/images/images'; 
+  private url = 'http://34.117.1.114/images/images'; 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };

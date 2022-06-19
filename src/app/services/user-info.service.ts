@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserInfoService {
 
-  private infoHost = "http://localhost:4000/user";
+  private url="http://34.117.1.114";
+  private infoHost = this.url+"/user";
 
   constructor(private http: HttpClient) { }
 

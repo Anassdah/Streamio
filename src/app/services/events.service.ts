@@ -9,7 +9,9 @@ import { Observable, tap } from 'rxjs';
 export class EventsService {
 
   constructor(private http: HttpClient) { }
-  private url = 'http://localhost:4000/events/events/'; 
+  private URL="http://34.117.1.114";
+  
+  private url = this.URL+'/events/events/'; 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };

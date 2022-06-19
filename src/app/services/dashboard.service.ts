@@ -9,10 +9,11 @@ import { GamesRESTService } from './games-rest.service';
 })
 export class DashboardService {
 
-  private userDBHost = "http://localhost:4000";
-  private gameDBHost = "http://localhost:4000/games";
-  private articleDBHost = "http://localhost:4000/article";
-  private eventDBHost = "http://localhost:4000/events";
+  private url="http://34.117.1.114";
+  private userDBHost = this.url;
+  private gameDBHost = this.url+"/games";
+  private articleDBHost = this.url+"/article";
+  private eventDBHost = this.url+"/events";
 
   constructor(private http: HttpClient, private userInfo: UserInfoService, private articleService: ArticleServiceService, private gameReviewsService: GamesRESTService) { }
 
