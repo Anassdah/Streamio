@@ -1,9 +1,13 @@
-<div id="feed">
+
+<div>
+  <mat-spinner style="margin: auto;" *ngIf="loading"></mat-spinner>
+</div>
+<div id="feed" *ngIf="!loading">
   <div id="feedContainer">
     <h1>Feed</h1>
-    <div *ngFor="let element of feed">
-      <div>
-        <mat-card class="element-card" *ngIf="element.type == 'review'">
+
+    <div *ngFor="let element of feed" class="element-card">
+        <mat-card  *ngIf="element.type == 'review'">
           <mat-card-header>
             <mat-card-title>{{ getUsername(element.user_id) }}</mat-card-title>
           </mat-card-header>
@@ -18,8 +22,6 @@
             {{ element.desc }}
           </mat-card-content>
         </mat-card>
-      </div>
-      <div>
         <mat-card class="element-card" *ngIf="element.type == 'article'">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -30,18 +32,27 @@
             {{ element.description }}
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button (click)="gotoArticle(element)">Learn more</button>
+            <button mat-button (click)="gotoArticle(element)">
+              Learn more
+            </button>
           </mat-card-actions>
         </mat-card>
-      </div>
     </div>
   </div>
   <div id="live_container">
     <h1>Live now</h1>
     <div *ngFor="let stream of liveStreams">
-      <mat-card *ngIf="stream.is_live" class="stream-card" (click)="goToStream(stream._id)">
+      <mat-card
+        *ngIf="stream.is_live"
+        class="stream-card"
+        (click)="goToStream(stream._id)"
+      >
         <span>
-          <b>{{stream.username}}</b> is streaming "{{stream.title}}"<span style="color:red">  Live  </span>
+          <b>{{ stream.username }}</b> is streaming "{{ stream.title }}"<span
+            style="color: red"
+          >
+            Live
+          </span>
         </span>
       </mat-card>
     </div>

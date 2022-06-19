@@ -29,11 +29,14 @@ export class ArticleComponent implements OnInit {
   id:string | undefined;
   comments:Comment[]=[];
 
+  loading=true;
+
   getArticle():void{
     this.id  = this.route.snapshot.paramMap.get("id")!;
     this.ArticleService.getArticle(this.id).subscribe((article) => {
       this.article = article;
       this.comments=article.comments.reverse();
+      this.loading=false;
     });
   }
 

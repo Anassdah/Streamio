@@ -1,4 +1,6 @@
 <div id="container">
+    <mat-spinner  style="margin:auto" *ngIf="loading"></mat-spinner>
+    
     <div *ngFor="let game of games"  class="cell">
       <mat-card  (click)="goToGame(game._id)">
         <div>

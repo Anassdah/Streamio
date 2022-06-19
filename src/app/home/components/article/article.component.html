@@ -1,4 +1,8 @@
-<div id="content">
+
+<div>
+    <mat-spinner style="margin: auto;" *ngIf="loading"></mat-spinner>
+</div>
+<div id="content" *ngIf="!loading">
     <div id="article_container">
         <div id="article">
             <div id="article_image"  >

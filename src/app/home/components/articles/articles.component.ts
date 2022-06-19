@@ -15,10 +15,12 @@ export class ArticlesComponent implements OnInit {
   ngOnInit(): void {
     this.getArticles();
   }
+  loading = true;
   articles: Article []=[];
   getArticles(): void {
     this.ArticleService.getAllArticles().subscribe((articles) => {
       this.articles = articles.reverse();
+      this.loading=false;
     });
   }
 }

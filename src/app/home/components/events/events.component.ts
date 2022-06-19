@@ -31,6 +31,7 @@ export class EventsComponent implements OnInit {
   events:Event[]=[];
   events_already_Registred:Set<Event>=new Set();
   event:Event[]=[];
+  loading=true;
 
   user_id:string|null=this.auth.getUser_id();
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class EventsComponent implements OnInit {
 
     this.EventService.getEvents(this.user_id).subscribe((events) => {
       this.events = events;
-      console.log(events);
+      this.loading=false;
       events.forEach((event :any)=>{
         if(event.isregistred) this.events_already_Registred.add(event);
         else this.event.push(event);

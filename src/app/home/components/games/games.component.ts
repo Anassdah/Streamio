@@ -10,6 +10,7 @@ import { GamesRESTService } from 'src/app/services/games-rest.service';
 export class GamesComponent implements OnInit {
 
   public games: any;
+  loading=true;
 
   constructor(private rest: GamesRESTService,
     private router: Router) { }
@@ -22,6 +23,7 @@ export class GamesComponent implements OnInit {
     this.rest.getGames().subscribe(
       data => {
         this.games = data;
+        this.loading=false;
       },
       err => {
         this.games = [

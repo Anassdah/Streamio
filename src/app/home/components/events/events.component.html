@@ -15,6 +15,7 @@
       </mat-form-field>
     </div>
     <div class="event">
+      <mat-spinner  style="margin:auto" *ngIf="loading"></mat-spinner>
       <div  *ngFor="let event of event" class="event-card" >
           <mat-card>
             <img mat-card-image src="{{ event.poster_url }}" />

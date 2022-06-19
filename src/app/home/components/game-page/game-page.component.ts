@@ -41,6 +41,8 @@ export class GamePageComponent implements OnInit {
 
     gameReviews:any[]=[];
 
+  
+  loading=true;
   ngOnInit(): void {
     this.rating.setValue(1);
     this.desc.setValue("");
@@ -55,6 +57,7 @@ export class GamePageComponent implements OnInit {
       data => {
         this.game = data;
         this.gameReviews=this.game.reviews;
+        this.loading=false;
       },
       err => {
         console.log(err);

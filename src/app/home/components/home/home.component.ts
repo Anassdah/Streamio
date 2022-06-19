@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   public feed: any[] = [];
   public liveStreams: any = [];
+  loading=true;
 
   constructor(private feedService: FeedService, public auth: AuthService,private router: Router, private streamService: StreamService
     ) { }
@@ -24,14 +25,13 @@ export class HomeComponent implements OnInit {
   } 
 
   async ngOnInit() {
-    /*this.liveStreams = await this.streamService.getLiveStreams();
-    console.log(this.liveStreams);
+    this.liveStreams = await this.streamService.getLiveStreams();
     this.liveStreams = await Promise.all(this.liveStreams.map(async (stream: any) => {
       let usernameObject = await this.auth.getUsernameFromId(stream.user_id).toPromise() || {username: undefined};
       stream.username = usernameObject.username;
       return stream;
     }));
-    this.liveStreams = this.liveStreams.reverse();*/
+    this.liveStreams = this.liveStreams.reverse();
 
     
     let rawFeed = await this.feedService.getFeed();
@@ -59,8 +59,8 @@ export class HomeComponent implements OnInit {
         element.type = "review";
         return element;
       }));
+      this.loading = false;
       
-      console.log(this.feed);
     }
 
 
