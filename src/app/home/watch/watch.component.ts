@@ -1,4 +1,4 @@
- import { Component, Directive, OnInit, ViewChild } from '@angular/core';
+ import { Component, Directive, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,7 +13,7 @@ import { NgAmpComponent } from 'ng-amp';
   templateUrl: './watch.component.html',
   styleUrls: ['./watch.component.scss'],
 })
-export class WatchComponent implements OnInit {
+export class WatchComponent implements OnInit , OnDestroy  {
 
   public messageContent = new FormControl('');
   width=200;
@@ -34,6 +34,10 @@ export class WatchComponent implements OnInit {
     this.userName = auth.getUsername() || 'guest';
     //streamer name or id
 
+  }
+  async ngOnDestroy() {
+    // stop 
+    await this.socket.disconnect();
   }
 
   async ngOnInit() {
@@ -83,7 +87,6 @@ export class WatchComponent implements OnInit {
 
   sendMessage(): void {
     this.socket.emit('message', this.messageContent.value, this.room);
-  
     this.messageList.unshift({ message: this.messageContent.value, userName: this.auth.getUser_id(), mine: true });
     this.messageContent.setValue('');
   }
