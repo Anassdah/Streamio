@@ -39,7 +39,7 @@
             <div >
               <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpg" style="width: 30px;height:30px;border-radius :50%;border :2px solid black;margin-right:10px;"/>
           </div>
-            <div class="msg-info-name" [ngStyle]="{'color':  item.mine ? 'blue' : 'red' }">{{this.auth.getUsername()}}</div>
+            <div class="msg-info-name" [ngStyle]="{'color':  item.mine ? 'blue' : 'red' }">{{item.userName}}</div>
             <div class="msg-info-time"></div>
           </div>
           <div class="msg-text">{{item.message}}</div>

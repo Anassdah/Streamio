@@ -87,7 +87,7 @@ export class WatchComponent implements OnInit , OnDestroy  {
 
   sendMessage(): void {
     this.socket.emit('message', this.messageContent.value, this.room);
-    this.messageList.unshift({ message: this.messageContent.value, userName: this.auth.getUser_id(), mine: true });
+    this.messageList.unshift({ message: this.messageContent.value, userName: this.auth.getUsername(), mine: true });
     this.messageContent.setValue('');
   }
 
