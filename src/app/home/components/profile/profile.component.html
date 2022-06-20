@@ -5,15 +5,26 @@
     <div id="video_Article_contatiner">
         <mat-tab-group>
             <mat-tab label="Articles"> 
-                <div id="videos_aticles">
-                    <div>
                         <app-cards [cards]="articles"></app-cards>
-                    </div>
-                </div></mat-tab>
-            <mat-tab label="Videos"> 
-                videos tab
             </mat-tab>
-            
+            <mat-tab label="Videos"> 
+                <div id="video_container">
+                    <div *ngFor="let video of streams" class="element-card">
+                        <mat-card >
+                            <mat-card-header>
+                              <mat-card-title>{{ video.title }}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="https://fr.savefrom.net/img/main/video.svg" />
+                            <mat-card-actions>
+                              <button style="border:1px solid palegoldenrod"mat-button (click)="goToStream(video._id)">watch</button>
+                            </mat-card-actions>
+                          </mat-card>
+                    </div>
+
+                </div>
+                
+            </mat-tab>
+
         </mat-tab-group>
     </div>
     

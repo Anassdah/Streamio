@@ -1,31 +1,55 @@
-<div id="start-stream-container">
-    <h1>Start a livestream</h1>
-    <form *ngIf="!loading && !submitted">
-        <mat-form-field appearance="outline">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Title" [formControl]="title">
-        </mat-form-field>
-        <br />
-        <mat-form-field appearance="fill">
-            <mat-label>Select a game</mat-label>
-            <mat-select [(value)]="game">
-                <mat-option *ngFor="let game of games" [value]="game">
-                    {{game.name}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br />
-        <div id="button-container">
-            <button mat-raised-button color="primary" (click)="this.startStream()">Start stream</button>
-        </div>
-
+<div>
+  <div id="start-stream-container" *ngIf="!loading && !submitted">
+    <form>
+      <h1>Start a livestream</h1>
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Title"
+          [formControl]="title"
+          style="width: 100%"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Select a game</mat-label>
+        <mat-select [(value)]="game">
+          <mat-option *ngFor="let game of games" [value]="game">
+            {{ game.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <div id="button-container">
+        <button mat-raised-button color="primary" (click)="this.startStream()">
+          Start stream
+        </button>
+      </div>
     </form>
+  </div>
 
-    <mat-spinner *ngIf="loading"></mat-spinner><br />
-    <span *ngIf="loading">Starting stream...</span>
+  <mat-spinner *ngIf="loading"></mat-spinner><br />
 
-    <span *ngIf="!loading && submitted">Connect your streaming software with this URL:
-        {{endpoints.ingestUrl}}</span><br />
-    <button mat-raised-button color="primary" *ngIf="link!='' && !loading" (click)="goToStream(endpoints.stream._id)">Go to live
-        stream</button>
+  <span *ngIf="loading">Starting stream...</span>
+
+  <div id="get_stream_url" *ngIf="!loading && submitted">
+    <div>
+      <span>
+        Connect your streaming software with this URL :
+        {{endpoints.ingestUrl}}
+      </span>
+      <mat-icon [cdkCopyToClipboard]="endpoints.ingestUrl">file_copy</mat-icon>
+    </div>
+
+    <br />
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="link != '' && !loading"
+      (click)="goToStream(endpoints.stream._id)"
+    >
+      Go to live stream
+    </button>
+  </div>
 </div>

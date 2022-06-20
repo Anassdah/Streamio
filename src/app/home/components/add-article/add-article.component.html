@@ -25,8 +25,13 @@
   
         <label for="fname"> upload article (as md):</label>
         <input type="file" (change)="onFileUpload($event)" /> 
-        <div style="display:flex">
-          <button id="add_article" class="button" style="align-content: flex-end;" (click)="uploadArticle()">Add Article</button>
+        <div style="display:flex;flex-direction:row;">
+          <div>
+             <button id="add_article" class="button" style="align-content: flex-end;" (click)="uploadArticle()">Add Article</button>
+          </div>
+          <div  style="margin: 20px;">
+            <mat-spinner [diameter]="50" *ngIf="loading"></mat-spinner>
+           </div>
         </div>
       </form>
     </div>

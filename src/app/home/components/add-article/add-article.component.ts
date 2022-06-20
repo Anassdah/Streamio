@@ -14,6 +14,7 @@ export class AddArticleComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
   article_title:string ="Article title ";
   description :string ="Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side rendering Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js or another push-model."
 
@@ -32,8 +33,9 @@ export class AddArticleComponent implements OnInit {
     };
     reader.readAsText(this.selecetdFile);
   }
-
+  loading=false;
   uploadArticle(){
+    this.loading=true;
     if(this.ArticlePreview && this.img_url && this.description && this.article_title){
       const article={
         title : this.article_title,
@@ -45,6 +47,7 @@ export class AddArticleComponent implements OnInit {
         comments :[]
       };
       this.ArticleService.addArticle(article).subscribe(() => {
+        this.loading=false;
         this.router.navigate(
           ['/articles/']
         );

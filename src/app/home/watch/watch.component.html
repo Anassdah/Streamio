@@ -9,7 +9,7 @@
       </app-video-player>
     </div>
   <mat-divider></mat-divider>
-    <div id="video_infos">
+    <div id="video_infos" *ngIf="src != ''">
       <div>
         <h1>{{ title }}</h1>
       </div>
@@ -34,17 +34,16 @@
 
   <div id="messages_container">
     <div id="messages">
-      <div *ngFor="let item of messages" class="message" >
+      <div *ngFor="let item of messageList" class="message" >
           <div class="msg-info">
             <div >
               <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpg" style="width: 30px;height:30px;border-radius :50%;border :2px solid black;margin-right:10px;"/>
           </div>
-            <div class="msg-info-name" [ngStyle]="{'color':  item.id==auth.getUser_id() ? 'blue' : 'red' }">{{item.senderDisplayName}}</div>
-            <div class="msg-info-time">{{item.createdOn}}</div>
+            <div class="msg-info-name" [ngStyle]="{'color':  item.mine ? 'blue' : 'red' }">{{this.auth.getUsername()}}</div>
+            <div class="msg-info-time"></div>
           </div>
-          <div class="msg-text">{{item.content?.message}}</div>
+          <div class="msg-text">{{item.message}}</div>
   
-          <div *ngIf="item.id == 'placeholder'" style="float:right">Sending...</div>
 
         <mat-divider></mat-divider>
 
@@ -56,7 +55,7 @@
           <textarea matInput placeholder="chat "  [formControl]="messageContent" ></textarea>
         </mat-form-field>
       <div>
-        <button mat-button color="primary"  style="padding:5px;margin-top: 10px;" (click)="send_message()"> Send</button>
+        <button mat-button color="primary"  style="padding:5px;margin-top: 10px;" (click)="sendMessage()"> Send</button>
       </div>
     </div>
 

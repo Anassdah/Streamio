@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ArticleServiceService } from 'src/app/services/article-service.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { StreamService } from 'src/app/services/stream.service';
 import { Article } from '../cards/cards.component';
 
 @Component({
@@ -14,12 +15,15 @@ export class ProfileComponent implements OnInit {
     public auth: AuthService,
     private ArticleService: ArticleServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private streamService: StreamService,
   ) {}
 
   id: string | undefined;
   articles: Article[] = [];
-  ngOnInit(): void {
+  streams:any=[];
+
+  async ngOnInit(){
     this.id = this.route.snapshot.paramMap.get('user_id')!;
     this.ArticleService.getUserArticles(this.id).subscribe((articles) => {
       this.articles = articles;
@@ -32,5 +36,12 @@ export class ProfileComponent implements OnInit {
         });
       }
     });
+    this.streams = await this.streamService.getStreams();
+
+
+  }
+
+  goToStream(id: string) {
+    this.router.navigateByUrl('/watch?streamId=' + id);
   }
 }

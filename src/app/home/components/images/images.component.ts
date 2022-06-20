@@ -36,13 +36,15 @@ export class ImagesComponent implements OnInit {
     }
   }
 
-  onMultipleSubmit() {
+  async onMultipleSubmit() {
     const formdata = new FormData()
  
     for (let img of this.multipleImages) {
-      formdata.append('files',img)
+      await formdata.append('files',img)
     }
-    this.http.post<any>('http://localhost:3000/images', formdata)
+    console.log(formdata);
+
+    this.http.post<any>('http://34.117.1.114/images/images', this.multipleImages)
       .subscribe((res:any) => {
         res.path.forEach((item :any)=>{
           this.images.unshift({

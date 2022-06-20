@@ -62,6 +62,8 @@ import { WatchComponent } from './watch/watch.component';
 import {MatSelectModule} from '@angular/material/select';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
+import {ClipboardModule} from '@angular/cdk/clipboard';
+
 
 @NgModule({
   declarations: [
@@ -119,7 +121,8 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
     MatGridListModule,
     NgxMaterialRatingModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    ClipboardModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},TopbarComponent,
