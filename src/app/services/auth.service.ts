@@ -49,6 +49,9 @@ export class AuthService {
   getUser_id() {
     return localStorage.getItem("user_id");
   }
+  getUser_token() {
+    return localStorage.getItem("id_token");
+  }
 
   getExpiration() {
     //returns moment of expiration in epoch format

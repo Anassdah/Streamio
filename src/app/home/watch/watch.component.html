@@ -52,7 +52,7 @@
      <mat-divider></mat-divider>
     <div id="add_message" *ngIf="auth.isLoggedIn()">
         <mat-form-field class="example-full-width" appearance="fill">
-          <textarea matInput placeholder="chat "  [formControl]="messageContent" ></textarea>
+          <textarea matInput placeholder="chat "  [formControl]="messageContent" (keyup.enter)="sendMessage()"  ></textarea>
         </mat-form-field>
       <div>
         <button mat-button color="primary"  style="padding:5px;margin-top: 10px;" (click)="sendMessage()"> Send</button>

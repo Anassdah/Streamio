@@ -57,7 +57,7 @@ export class WatchComponent implements OnInit , OnDestroy  {
 
     //if (this.stream.is_live) 
     if (true) {
-      this.socket = io.io(`localhost:4004?userName=${this.userName}&room=${this.room}`);
+      this.socket = io.io(`34.111.172.233?userName=${this.userName}&room=${this.room}&token=${this.auth.getUser_token()}`);
       this.joinRoom();
       this.socket.emit('set-user-name', this.userName, this.room);
       this.socket.on('output-messages', (data: any) => {
@@ -66,10 +66,10 @@ export class WatchComponent implements OnInit , OnDestroy  {
           data.forEach((message: any) => {
             if (this.room == message.room) {
               if (message.username == this.userName) {
-                this.messageList.push({ message: message.msg, userName: message.username, mine: true });
+                this.messageList.unshift({ message: message.msg, userName: message.username, mine: true });
               }
               else {
-                this.messageList.push({ message: message.msg, userName: message.username, mine: false });
+                this.messageList.unshift({ message: message.msg, userName: message.username, mine: false });
               }
             }
 
