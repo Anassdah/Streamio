@@ -53,7 +53,7 @@ export class WatchComponent implements OnInit , OnDestroy  {
     this.is_live = this.stream[0].is_live;
     console.log(this.stream);
 
-    this.room = this.streamId;
+    this.room = this.streamId;let already_loaded=false;
 
     //if (this.stream.is_live) 
     if (true) {
@@ -61,20 +61,24 @@ export class WatchComponent implements OnInit , OnDestroy  {
       this.joinRoom();
       this.socket.emit('set-user-name', this.userName, this.room);
       this.socket.on('output-messages', (data: any) => {
-        //console.log(data);
-        if (data.length) {
-          data.forEach((message: any) => {
-            if (this.room == message.room) {
-              if (message.username == this.userName) {
-                this.messageList.unshift({ message: message.msg, userName: message.username, mine: true });
+        if(!already_loaded){
+          if (data.length) {
+            data.forEach((message: any) => {
+              if (this.room == message.room) {
+                if (message.username == this.userName) {
+                  this.messageList.unshift({ message: message.msg, userName: message.username, mine: true });
+                }
+                else {
+                  this.messageList.unshift({ message: message.msg, userName: message.username, mine: false });
+                }
               }
-              else {
-                this.messageList.unshift({ message: message.msg, userName: message.username, mine: false });
-              }
-            }
+            });
+            already_loaded=true;
+          }
 
-          });
         }
+        //console.log(data);
+        
       });
 
       this.socket.on('message-broadcast', (data: { message: string, userName: string }) => {

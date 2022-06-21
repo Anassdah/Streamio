@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   id: string | undefined;
   articles: Article[] = [];
   streams:any=[];
+  mystreams:any=[];
 
   async ngOnInit(){
     this.id = this.route.snapshot.paramMap.get('user_id')!;
@@ -37,8 +38,11 @@ export class ProfileComponent implements OnInit {
       }
     });
     this.streams = await this.streamService.getStreams();
-
-
+    this.streams.forEach((stream:any)=>{
+      if(stream.user_id==this.auth.getUser_id()){
+        this.mystreams.push(stream);
+      }
+    })
   }
 
   goToStream(id: string) {
