@@ -1,4 +1,6 @@
-# Testproject
+# Streamio
+Link for [Slides of application demo](https://www.canva.com/design/DAF5egFTPcg/4SmHpZl2-zLqDcq0sTs1Yw/edit?utm_content=DAF5egFTPcg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) 
+## Getting Started
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
